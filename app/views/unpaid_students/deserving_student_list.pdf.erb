@@ -1,0 +1,25 @@
+<h1 style="text-align: center;">Educational School System</h1>
+<p style="border-bottom: double 4px; "></p>
+<table style="width:100vw;">
+<th style="text-align:left;border-bottom: 1px solid #000;">ID</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Name</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Father</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Class</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Section</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Phone</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Fee</th>
+<th style="text-align:left;border-bottom: 1px solid #000; ">Type</th>
+<% @students.each_with_index do |student,index| %>
+  <%= render partial: "student_list", locals: {student: student, index: index+1} %>
+<% end %>
+<tr>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td></td>
+  <td style="text-align:left;border: 1px solid #000;"><h4 style="margin: 0;">Total Fee: </h4></td>
+  <td style="text-align:left;border: 1px solid #000;"><h3 style="margin: 0;"><%= @fee%></h3></td>
+  <td></td>
+</tr>
+</table>

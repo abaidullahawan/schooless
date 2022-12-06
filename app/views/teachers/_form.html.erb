@@ -1,0 +1,111 @@
+<%= bootstrap_form_for(teacher) do |f| %>
+  <% if teacher.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(teacher.errors.count, "error") %> prohibited this teacher from being saved:</h2>
+
+      <ul>
+      <% teacher.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :cnic %>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :father %>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :education %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :phone %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :address %>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <%= f.date_select :date_of_joining %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.date_select :date_of_leaving %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.number_field :yearly_increment %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.number_field :monthly_salary %>
+  </div>
+  <div class="col-lg-6" style="float:left">
+  <% @branch_name = f.object.school_branch_id if f.object.persisted? %>
+  <%= f.select :school_branch_id, options_from_collection_for_select(@school_branches, 'id', 'name', @branch_name), {prompt: "Select the Branch"},class:"", required: true %>
+  </div>
+  <div class="col-lg-6" style="float:right">
+    <div class="form-group has-warning">
+      <label for="student_section_id">Select Class</label>
+      <% @level = f.object.level_id if f.object.persisted? %>
+      <%= select_tag "teacher[level_id]", options_from_collection_for_select(Level.all, 'id', 'name',@level),{prompt: "Select the Class", class: "form-control", required: true} %>
+    </div>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <div class="form-group has-warning">
+      <label for="student_section_id">Select Section</label>
+      <% @section = f.object.section_id if f.object.persisted? %>
+      <%= select_tag "teacher[section_id]", options_from_collection_for_select(Section.all, 'id', 'name',@section),{prompt: "Select the Section", class: "form-control ", required: true} %>
+    </div>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <%= f.collection_radio_buttons :gender, Teacher.genders.map {|k,v| [k,k]}, :first, :last do |b| %>
+      <%= b.radio_button %>
+      <%= b.label %>
+    <% end %>
+  </div>
+
+  <div class="col-lg-12" style="float:left">
+    <% if f.object.versions.last.present? %>
+      <h2>Previous Salary List</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Salary</th>
+            <th>Incremented Date/Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% f.object.versions.each do |teacher| %>
+            <tr>
+              <td><%= teacher.reify.monthly_salary %></td>
+              <td><%= teacher.reify.updated_at %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <%end%>
+  </div>
+
+
+  <%= f.hidden_field :school_branch_id, value: @school_branch.id %>
+
+  <div class="actions">
+    <%= link_to 'Teachers', teachers_path, class: "btn btn-info" %>
+    <%= f.submit class: "btn btn-primary", style: "float: right" %>
+  </div>
+<% end %>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+  });
+</script>

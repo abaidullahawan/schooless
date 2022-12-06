@@ -1,0 +1,55 @@
+<!-- salary The Modal -->
+<div class="modal" id="salaryModel">
+  <div class="modal-dialog modal-sm modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Salary</h4>
+        <button type="button" class="close closeModel" data-dismiss="modal" onclick="close_model('salaryModel'); return false;">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="alert alert-info">
+          <span id="calculated_salary_model_text">After advance deducted</span>, Calculated Salary: Rs. <strong><span id="calculated_salary_model"></strong></span>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger closeModel" data-dismiss="modal" onclick="close_model('salaryModel'); return false;">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Salary end The Modal -->
+
+<!-- Student fee The Modal -->
+<div class="modal" id="FeeModel">
+  <div class="modal-dialog modal-sm modal-lg">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Student Fee</h4>
+        <button type="button" class="close closeModel" data-dismiss="modal" onclick="close_model('FeeModel'); return false;">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div class="alert alert-info">
+          <span id="calculated_fee_model_text"></span>
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger closeModel" data-dismiss="modal" onclick="close_model('FeeModel'); return false;">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Student fee end modal -->

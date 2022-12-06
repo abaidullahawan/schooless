@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Schooless</title>
+  <%= csrf_meta_tags %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+
+  <div class="d-flex" id="wrapper">
+
+    <%= render 'layouts/shared/sidebar' %>
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+     <%= render 'layouts/shared/navigation_bar' %>
+
+      <div class="container-fluid">
+        <div style="margin-top: 2rem"></div>
+        <% if notice.present? %>
+          <div id="notice" class="alert alert-success">
+            <%= notice.html_safe %>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        <% end %>
+        <%= yield %>
+        <%= render 'layouts/shared/footer' %>
+      </div>
+    </div>
+    <!-- /#page-content-wrapper -->
+
+    <%= render 'layouts/shared/alert_model' %>
+</div>
+  <!-- /#wrapper -->
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+
+</body>
+
+</html>

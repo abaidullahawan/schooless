@@ -1,0 +1,130 @@
+<%= bootstrap_form_for(salary) do |f| %>
+  <% if salary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(salary.errors.count, "error") %> prohibited this salary from being saved:</h2>
+
+      <ul>
+      <% salary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if salary.persisted? %>
+    <div class="form-group has-warning">
+      <label for="student_section_id">Paid to</label>
+      <%= text_field_tag "salary_paid_to", salary.paid_to, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group has-warning">
+      <label for="student_section_id">Name</label>
+      <%= text_field_tag "salary_paid_to_name", salary.Teacher? ? salary.teacher.name : salary.staff.name, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group has-warning">
+      <label for="student_section_id">Monthly Salary</label>
+        <% if salary.Teacher?%>
+          <%= text_field_tag "teacher_monthly_salary", salary.teacher.monthly_salary, class: "form-control", readonly: true %>
+        <%else%>
+          <%= text_field_tag "staff_monthly_salary", salary.staff.monthly_salary, class: "form-control", readonly: true %>
+        <%end%>
+    </div>
+
+    <div class="form-group has-warning">
+      <label for="student_section_id">Salary per Day</label>
+      <%
+      monthly_salary_amount = salary.Teacher? ? salary.teacher.monthly_salary : salary.staff.monthly_salary
+      daily_salary_amount = (monthly_salary_amount.to_f / (Time.days_in_month Date.today.month)).round(2)
+      %>
+      <% if salary.Teacher?%>
+        <%= text_field_tag "teacher_salary_per_day", daily_salary_amount, class: "form-control", readonly: true %>
+      <%else%>
+        <%= text_field_tag "staff_salary_per_day", daily_salary_amount, class: "form-control", readonly: true %>
+      <%end%>
+    </div>
+    <%=  %>
+  <% else %>
+    <%if params[:teacher_id]%>
+      <%= f.select :paid_to, options_for_select(Salary.paid_tos.keys,"Teacher"), {prompt: "Select Pay to", label: "Pay to"}, {onchange: 'toggle_teacher_staff(this.value); return false;', required: true } %>
+    <%elsif params[:staff_id]%>
+      <%= f.select :paid_to, options_for_select(Salary.paid_tos.keys,"Staff"), {prompt: "Select Pay to", label: "Pay to"}, {onchange: 'toggle_teacher_staff(this.value); return false;', required: true } %>
+    <%else%>
+      <%= f.select :paid_to, Salary.paid_tos.keys, {prompt: "Select Pay to", label: "Pay to"}, {onchange: 'toggle_teacher_staff(this.value); return false;', required: true } %>
+    <%end%>
+    <div id="teacher_options_list" class="hidden">
+      <%= f.select :teacher_id, options_from_collection_for_select(@teachers_list, 'id', 'name',params[:teacher_id]), {prompt: "Select the Teacher"}, { onchange: 'set_teacher_salary_info(this.value); return false;', required: true } %>
+      <div id="teacher_salary_info" class="hidden">
+        <div class="form-group has-warning">
+          <label for="student_section_id">Monthly Salary</label>
+          <%= text_field_tag "teacher_monthly_salary", '', class: "form-control", readonly: true %>
+        </div>
+        <div class="form-group has-warning">
+          <label for="student_section_id">Salary per Day</label>
+          <%= text_field_tag "teacher_salary_per_day", '', class: "form-control", readonly: true %>
+        </div>
+        <div class="form-group has-warning">
+          <label for="teacher_class_id">Class</label>
+          <%= text_field_tag "teacher_class", '', class: "form-control", readonly: true %>
+        </div>
+        <div class="form-group has-warning">
+          <label for="teacher_section_id">Section</label>
+          <%= text_field_tag "teacher_section", '', class: "form-control", readonly: true %>
+        </div>
+      </div>
+    </div>
+    <div id="staff_options_list" class="hidden">
+      <%= f.select :staff_id, options_from_collection_for_select(@staffs_list, 'id', 'name',params[:staff_id]), {prompt: "Select the Staff"}, { onchange: 'set_staff_salary_info(this.value); return false;', required: true } %>
+      <div id="staff_salary_info" class="hidden">
+        <div class="form-group has-warning">
+          <label for="student_section_id">Monthly Salary</label>
+          <%= text_field_tag "staff_monthly_salary", '', class: "form-control", readonly: true %>
+        </div>
+        <div class="form-group has-warning">
+          <label for="student_section_id">Salary per Day</label>
+          <%= text_field_tag "staff_salary_per_day", '', class: "form-control", readonly: true %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= f.number_field :leaves_in_month, onfocusout: "calculate_teach_staff_salary(); return false;" %>
+
+  <% if salary.persisted? %>
+    <div class="hidden">
+      <%= text_field_tag "salary_advance", salary.advance_due_till_this_transaction, class: "form-control", readonly: true %>
+    </div>
+  <% else %>
+    <div id="advance_salary_info" class= "hidden" >
+      <%= f.number_field :advance, disabled: true%>
+    </div>
+  <% end %>
+
+  <div id="calculate_teach_staff_salary_btn" class="calculate_teach_staff_salary_btn hidden">
+    <button class="btn btn-info" onclick="calculate_teach_staff_salary(); return false;">Re-Calculate Salary</button>
+  </div>
+  <%= f.number_field :paid_salary, label: "Paid Amount (after advance deducted)", required: true %>
+  <%= f.hidden_field :school_branch_id, value: @school_branch.id %>
+  <%= f.hidden_field :payment_type %>
+
+
+  <div class="actions">
+    <%= link_to 'Salaries', salaries_path, class: "btn btn-info" %>
+    <%= f.submit class: "btn btn-primary", style: "float: right" %>
+  </div>
+<% end %>
+<% if params[:teacher_id] %>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      toggle_teacher_staff("Teacher");
+      set_teacher_salary_info($('#salary_teacher_id').val());
+    });
+  </script>
+<%elsif params[:staff_id]%>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      toggle_teacher_staff("Staff");
+      set_staff_salary_info($('#salary_staff_id').val());
+    });
+  </script>
+<%end%>

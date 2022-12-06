@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-12"><h1>Salary Detail</h1></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><strong>Paid To:</strong></div>
+  <div class="col-sm-8"><%= @salary.paid_to %></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><strong>Name</strong></div>
+  <div class="col-sm-8"><%= @salary.Teacher? ? @salary.teacher.name : @salary.staff.name %></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><strong>Paid salary</strong></div>
+  <div class="col-sm-8"><%= @salary.paid_salary %></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><strong>Leaves in Month:</strong></div>
+  <div class="col-sm-8"><%= @salary.leaves_in_month %></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><strong>School Branch:</strong></div>
+  <div class="col-sm-8"><%= @salary.school_branch.name %></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><%= link_to 'Salaries', salaries_path, class: "btn btn-info" %></div>
+  <div class="col-sm-2"><%= link_to 'Edit', edit_salary_path(@salary), class: "btn btn-primary" %></div>
+</div>
+

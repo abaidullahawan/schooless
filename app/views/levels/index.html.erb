@@ -1,0 +1,44 @@
+<div class="hidden" id="levels_list">
+  <h1>Classes</h1>
+  <%= link_to 'New Class', new_level_path, class: "btn btn-primary" %>
+  <table data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>School Branch</th>
+        <th>Comment</th>
+        <th class="border_none"></th>
+        <th class="border_none">Action</th>
+        <th class="border_none"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @levels.each do |level| %>
+        <tr>
+          <td><%= level.id %></td>
+          <td><%= level.name %></td>
+          <td><%= level.school_branch.name %></td>
+          <td><%= level.comment %></td>
+          <td><%= link_to 'Show', level %></td>
+          <td><%= link_to 'Edit', edit_level_path(level) %></td>
+          <td><%= link_to 'Destroy', level, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#levels_list").removeClass('hidden');
+  });
+</script>

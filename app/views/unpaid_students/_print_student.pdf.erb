@@ -1,0 +1,116 @@
+<% @date = Date.today  %>
+<h1 style="text-align: center;">Educational School System</h1>
+<p style="border-bottom: double 4px; "></p>
+<div style="width:90vw;">
+  <p>
+  Dear Parents,
+  <br>
+  We are Thankful For your Trust in Educational School System.
+  <span><%= student.name.capitalize %></span> Father name is <span><%= student.father_name.capitalize %></span>, Student of <span><%= student.class_section.level.name+" " %><%= student.class_section.section.name%></span> is very good in Studies and teachers always praised your child.
+  The management of school want your attention toward the school fee.We request you to please <span>deposit the school fee</span> as soon as possible to avoid any inconvenience.
+  <% if student.balance.present? and student.balance < 0 %>
+   Till today we do not disturb your Child due to shortage of fee and we don't want to do this at all.In case of no fee deposit your child may not be allowed to attend classes after <span>10  <%= @date.strftime("%B")%> 2019</span>.
+  <%end%>
+  <br>
+  <%# We wish the bestest educational results for your child and blessed life for you. %>
+  Thanking you in advance.
+  <br>
+  </p>
+</div>
+
+  <table>
+    <th></th>
+    <th></th>
+    <tr>
+      <td style="border-bottom: 1px solid #000; width:67vw;">Due Date: </td>
+      <td style="border-bottom: 1px solid #000; width:33vw;"><h4 style="margin: 0;">06 <%= @date.strftime("%b") %></h4></td>
+    </tr>
+    <%student.balance.present? ? st_balance=student.balance : st_balance=0 %>
+    <%student.admission_balance.present? ? st_admission=student.admission_balance : st_admission=0 %>
+    <%student.security_balance.present? ? st_security=student.security_balance : st_security=0 %>
+    <%student.paper_fund_balance.present? ? st_paper=student.paper_fund_balance : st_paper=0 %>
+    <% if (st_balance < 0) or (st_admission < 0) or (st_security < 0) or (st_paper < 0 )%>
+      <% if st_balance < 0%>
+        <tr>
+          <td style="border-bottom: 1px solid #000;">Previous Fee: </td>
+          <td style="border-bottom: 1px solid #000; "><h4 style="margin: 0;"><%=st_balance.abs %>+200</h4></td>
+        </tr>
+      <%end%>
+      <% if st_admission < 0%>
+      <tr>
+        <td style="border-bottom: 1px solid #000; ">Admission Balance: </td>
+        <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=st_admission.abs %></h4></td>
+      </tr>
+      <%end%>
+      <% if st_security < 0%>
+      <tr>
+        <td style="border-bottom: 1px solid #000;">Security Balance: </td>
+        <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=st_security.abs %></h4></td>
+      </tr>
+      <%end%>
+      <% if st_paper < 0 %>
+      <tr>
+        <td style="border-bottom: 1px solid #000; ">Paper Fund Balance: </td>
+        <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=st_paper.abs %></h4></td>
+      </tr>
+      <%end%>
+      <tr>
+        <td style="border-bottom: 1px solid #000; ">Fee of <%= @date.strftime("%B")%>: </td>
+        <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=student.monthly_fee.abs %></h4></td>
+      </tr>
+      <tr>
+        <td style="border-bottom: 1px solid #000;">Total: </td>
+        <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=(st_balance.abs+st_admission.abs+st_security.abs+st_paper.abs+student.monthly_fee)%></h4></td>
+      </tr>
+      <% end %>
+
+      <tr>
+        <td style="border-bottom: 1px solid #000; ">Fine After Due Date:</td>
+        <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;">200</h4></td>
+      </tr>
+      <% if (st_balance < 0) or (st_admission < 0) or (st_security < 0) or (st_paper < 0 )%>
+      <tr>
+        <td style="border-bottom: 1px solid #000;">Total After Due Date: </td>
+        <%if st_balance<0%>
+          <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=(st_balance.abs+st_admission.abs+st_security.abs+st_paper.abs+student.monthly_fee+400)%></h4></td>
+        <%else%>
+          <td style="border-bottom: 1px solid #000;"><h4 style="margin: 0;"><%=(st_balance.abs+st_admission.abs+st_security.abs+st_paper.abs+student.monthly_fee+200)%></h4></td>
+        <%end%>
+      </tr>
+    <% end %>
+
+  </table>
+<p style="text-align: center;">Principal <br><span>ESS</span></p>
+<!-- <p style="border-bottom: outset black 4px;"></p>
+<h3 class="centerline">Student Detail</h3>
+<p style="border-bottom: double 4px;"></p> -->
+<!-- <table>
+  <tbody>
+    <tr>
+      <td>Name: </td><td><p><span><%= student.name %></span></p></td>
+    </tr>
+    <tr>
+      <td>Branch: </td>
+      <td><p> <span><%= student.school_branch.name  %></span></p></td>
+      <td>Class:</td>
+      <td><p><span><%= student.class_section.level.name %></span></p></td>
+    </tr>
+    <tr>
+      <td>Section: </td>
+      <td><p><span><%= student.class_section.section.name %></span></p></td>
+      <td>Monthly Fee: </td>
+      <td><p><span><%= student.monthly_fee %></span></p></td>
+    </tr>
+  </tbody>
+</table> -->
+<!-- <p class="">Student Name: <span><%= student.name %></span></p> -->
+<!-- <p class="">Branch: <span><%= student.school_branch.name  %></span> Class: <span><%= student.class_section.level.name %></span></p> -->
+<!-- <p class="">Section: <span><%= student.class_section.section.name %></span> Monthly Fee: <span><%= student.monthly_fee %></span></p> -->
+<p>
+<span style=" float:right; margin:0 50px;"></span>
+</p>
+<p style="border-bottom: double 4px;"></p>
+<br>
+<!-- <p class="rightline">Balance: <span><%= student.balance %></span></p> -->
+<!-- <p class="rightline">Fee Due: <span><%= fee_due_month %></span></p> -->
+<!-- <p class="rightline">Fine after due Date: <span>200</span></p> -->

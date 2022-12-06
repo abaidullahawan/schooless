@@ -1,0 +1,22 @@
+<h1 style="text-align: center;">Educational School System</h1>
+<p style="border-bottom: double 4px; "></p>
+<table style="width:100%">
+<th style="text-align:left;border-bottom: 1px solid #000;">ID</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Name</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Father</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Class</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Section</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Phone 1</th>
+<th style="text-align:left;border-bottom: 1px solid #000;">Phone 2</th>
+<% @students.each_with_index do |student,index| %>
+  <tr>
+    <td style="border-bottom: 1px solid #000;"><%=index+1%></td>
+    <td style="border-bottom: 1px solid #000;"><%=student.name rescue "" %></td>
+    <td style="border-bottom: 1px solid #000;"><%=student.father_name  rescue "" %></td>
+    <td style="border-bottom: 1px solid #000;"><%= student.class_section.level.name  rescue "" %></td>
+    <td style="border-bottom: 1px solid #000;"><%= student.class_section.section.name rescue ""%></td>
+    <td style="border-bottom: 1px solid #000;"></td>
+    <td style="border-bottom: 1px solid #000;"></td>
+  </tr>
+<% end %>
+</table>

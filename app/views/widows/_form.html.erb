@@ -1,0 +1,25 @@
+<%= bootstrap_form_for(widow) do |f| %>
+  <% if widow.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(widow.errors.count, "error") %> prohibited this widow from being saved:</h2>
+
+      <ul>
+      <% widow.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name %>
+
+  <%= f.text_field :monthly_aid %>
+
+  <%= f.text_area :comment %>
+
+  <div class="actions">
+    <%= link_to 'Widows', widows_path, class: "btn btn-info" %>
+    <%= f.submit class: "btn btn-primary", style: "float: right" %>
+  </div>
+
+<% end %>

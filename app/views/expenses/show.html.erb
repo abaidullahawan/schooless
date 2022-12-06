@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12"><h1>Expense Detail</h1></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Expense type</strong></div>
+  <div class="col-sm-8"><%= @expense.expense_type %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Expense</strong></div>
+  <div class="col-sm-8"><%= @expense.expense %></div>
+</div>
+
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>School Branch</strong></div>
+  <div class="col-sm-8"><%= @expense.school_branch.name %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Comment</strong></div>
+  <div class="col-sm-8"><%= @expense.comment %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><%= link_to 'Expenses', expenses_path, class: "btn btn-info" %></div>
+  <div class="col-sm-2"><%= link_to 'Edit', edit_expense_path(@expense), class: "btn btn-primary" %></div>
+</div>

@@ -1,0 +1,22 @@
+<h1 style="text-align: center;">Educational School System</h1>
+<p style="border-bottom: double 4px; "></p>
+<table style="width:100%">
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Name</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Father</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Education</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Class/Sec</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Phone</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">D-O-J</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Address</th>
+  <% @staffs.each_with_index do |staff,index| %>
+    <tr>
+      <td style="font-size:20px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:16%;"><%=staff.name rescue "" %></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:16%;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:10%;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:4%;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:6%;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:6%;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000; width:40%;"></td>
+    </tr>
+  <% end %>
+</table>

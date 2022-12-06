@@ -1,0 +1,47 @@
+<div class="hidden" id="schools_list">
+  <h1>School Branches</h1>
+  <%= link_to 'New School', new_school_branch_path, class: "btn btn-primary" %>
+  <%= link_to 'New month', school_branches_new_month_school_branches_path, class: "btn btn-primary" %>
+  <table data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Code</th>
+        <th>Active</th>
+        <th class="border_none"></th>
+        <th class="border_none">Action</th>
+        <th class="border_none"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @school_branches.each do |school_branch| %>
+        <tr>
+          <td><%= school_branch.id %></td>
+          <td><%= school_branch.name %></td>
+          <td><%= school_branch.address %></td>
+          <td><%= school_branch.code %></td>
+          <td><%= school_branch.active %></td>
+          <td><%= link_to 'Edit', edit_school_branch_path(school_branch) %></td>
+          <td><%= link_to 'Show', school_branch %></td>
+          <td><%= link_to 'Destroy', school_branch, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#schools_list").removeClass('hidden');
+  });
+</script>

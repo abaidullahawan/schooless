@@ -1,0 +1,23 @@
+<%= bootstrap_form_for(level) do |f| %>
+  <% if level.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(level.errors.count, "error") %> prohibited this level from being saved:</h2>
+
+      <ul>
+      <% level.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name %>
+  <%= f.text_area :comment %>
+  <% @branch_name = f.object.school_branch_id if f.object.persisted? %>
+  <%= f.select :school_branch_id, options_from_collection_for_select(@school_branches, 'id', 'name', @branch_name), {prompt: "Select the Branch"}, class:"select_chosen",required: true %>
+
+  <div class="actions">
+    <%= link_to 'Classes', levels_path, class: "btn btn-info" %>
+    <%= f.submit class: "btn btn-primary", style: "float: right" %>
+  </div>
+<% end %>

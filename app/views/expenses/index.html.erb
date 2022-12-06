@@ -1,0 +1,79 @@
+<div class="hidden" id="expenses_list">
+  <h1>Expenses</h1>
+  <%= link_to 'New Expense', new_expense_path, class: "btn btn-primary" %>
+
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <%= search_form_for @q, url: expenses_path, class: "admin-controls", method: "get" do |f| %>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.select :expense_type_eq, ['Building rent','Monthly comity','Widows Aids program', 'Utility bills', 'Mentance', 'Stationery', 'Furniture', 'Guest Refreshment', 'Yearly Functions', 'Other'], {include_blank: "Select Expense type"}, { class: "form-control selectpicker"} %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.select :school_branch_id_eq, options_from_collection_for_select(@school_branches, 'id', 'name', @school_branch_id), {:include_blank => "Select Branch"},:class=>"form-control chosen-select" %>
+        </div>
+        <div class="row col-lg-2 form-group float-left">
+          <div class="col-lg-6" style="padding-right: 0;">
+            <%= select_month(@paid_to_month.to_i, {prompt: "Month", use_short_month: true, prefix: 'expenses'},{ field_name: 'month', id: 'start-month', class: 'form-control input-sm select_chosen'}) %>
+          </div>
+          <div class="col-lg-6" style="padding-left: 0;">
+            <%= select_year(@paid_to_year.to_i, {prompt: "Year", start_year: Date.today.year + 1, end_year: Date.today.year - 7, prefix: 'expenses'},{ field_name: 'year', id: 'start-year', class: 'form-control input-sm select_chosen'}) %>
+          </div>
+        </div>
+
+        <div class="col-lg-2 form-group float-left">
+          <input class="form-control btn btn-primary" name="search_submit" type="submit" value="Search"></input>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <table data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th><%= sort_link(@q, :id, 'ID') %></th>
+        <th><%= sort_link(@q, :expense_type, 'Expense type') %></th>
+        <th><%= sort_link(@q, :expense, 'Expense') %></th>
+        <th>Comment</th>
+        <th>School branch</th>
+        <th class="border_none"></th>
+        <th class="border_none">Action</th>
+        <th class="border_none"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @expenses.each do |expense| %>
+        <tr>
+          <td><%= expense.id %></td>
+          <td><%= expense.expense_type %></td>
+          <td><%= expense.expense %></td>
+          <td><%= expense.comment %></td>
+          <td><%= expense.school_branch.name %></td>
+          <td><%= link_to 'Edit', edit_expense_path(expense) %></td>
+          <td><%= link_to 'Show', expense %></td>
+          <td><%= link_to 'Destroy', expense, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-lg-4 col-sm-4">
+    <%= page_entries_info @expenses %>
+  </div>
+  <div class="col-lg-8 col-sm-8 pagination-left">
+    <%= paginate @expenses %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#expenses_list").removeClass('hidden');
+  });
+</script>

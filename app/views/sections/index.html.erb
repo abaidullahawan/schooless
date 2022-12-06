@@ -1,0 +1,42 @@
+<div class="hidden" id="sections_list">
+  <h1>Sections</h1>
+  <%= link_to 'New Section', new_section_path, class: "btn btn-primary" %>
+  <table data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>School Branch</th>
+        <th class="border_none"></th>
+        <th class="border_none">Action</th>
+        <th class="border_none"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @sections.each do |section| %>
+        <tr>
+          <td><%= section.id %></td>
+          <td><%= section.name %></td>
+          <td><%= section.school_branch.name %></td>
+          <td><%= link_to 'Edit', edit_section_path(section) %></td>
+          <td><%= link_to 'Show', section %></td>
+          <td><%= link_to 'Destroy', section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#sections_list").removeClass('hidden');
+  });
+</script>

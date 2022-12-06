@@ -1,0 +1,10 @@
+<tr>
+  <td style="border-bottom: 1px solid #000;"><%=index%></td>
+  <td style="border-bottom: 1px solid #000;"><%=student.name rescue ''%></td>
+  <td style="border-bottom: 1px solid #000;"><%=student.father_name rescue ''%></td>
+  <td style="border-bottom: 1px solid #000;"><%= student.class_section.level.name rescue ''%></td>
+  <td style="border-bottom: 1px solid #000;"><%= student.class_section.section.name rescue ''%></td>
+  <td style="border-bottom: 1px solid #000;"><%=student.phone_no rescue ''%> / <%=student.phone_sec rescue ''%></td>
+  <td style="border-bottom: 1px solid #000;"><%=student.monthly_fee rescue 0%></td>
+  <td style="border-bottom: 1px solid #000;"><%=student.student_type rescue '' %></td>
+</tr>

@@ -1,0 +1,822 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT GET_LOCK('515363517038049120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (20.4ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.6ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT RELEASE_LOCK('515363517038049120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `class_sections`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `expenses`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'expenses'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `levels`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'levels'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `salaries`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `school_branches`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'school_branches'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `schools`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'schools'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `sections`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'sections'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `staffs`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'staffs'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `student_fees`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'student_fees'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `students`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'students'[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW CREATE TABLE `teachers`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'teachers'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `widows`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'widows'[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT DATABASE() as db[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT GET_LOCK('515363517038049120', 0);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('515363517038049120')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `class_sections`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `expenses`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'expenses'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `levels`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'levels'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `salaries`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `school_branches`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'school_branches'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `schools`[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'schools'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `sections`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'sections'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `staffs`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'staffs'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `student_fees`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'student_fees'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `students`[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'students'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `teachers`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'teachers'[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSHOW CREATE TABLE `users`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'users'[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSHOW CREATE TABLE `widows`[0m
+  [1m[35m (0.3ms)[0m  [1m[35mSHOW TABLE STATUS LIKE 'widows'[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM `users` WHERE `users`.`email` = BINARY 'test@school.com' LIMIT 1[0m
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for ::1 at 2021-09-17 22:56:24 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:HomeController> at /home/devbox/offline/schooless/app/controllers/home_controller.rb:2)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.0ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (15.9ms)
+Completed 200 OK in 27868ms (Views: 27767.7ms | ActiveRecord: 6.3ms)
+
+
+Started GET "/students" for ::1 at 2021-09-17 22:56:59 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.7ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (1.7ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 9 AND extract(year from student_fees.paid_date) = 2021 AND student_fees.fee_type = 'Fee' AND student_id IN (NULL))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (1.1ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 LIMIT 55 OFFSET 0[0m
+  Rendered students/index.html.erb within layouts/application (129.8ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.1ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (1.2ms)
+  Rendered layouts/shared/_footer.html.erb (0.4ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.6ms)
+Completed 200 OK in 1235ms (Views: 328.0ms | ActiveRecord: 18.1ms)
+
+
+Started GET "/unpaid_students" for ::1 at 2021-09-17 23:00:06 +0500
+Processing by UnpaidStudentsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.7ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `student_fees`.`student_id` FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 9 AND extract(year from student_fees.paid_date) = 2021 AND student_fees.fee_type = 'Fee')[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0)[0m
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE (deleted=false AND student_type = 0 OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT  DISTINCT `students`.* FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0[0m
+  Rendering unpaid_students/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (1.3ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  [1m[36mLevel Load (1.1ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (1.3ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(DISTINCT count_column) FROM (SELECT  DISTINCT `students`.`id` AS count_column FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0) subquery_for_count[0m
+  Rendered unpaid_students/index.html.erb within layouts/application (69.0ms)
+  Rendered layouts/shared/_sidebar.html.erb (4.2ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (4.5ms)
+  Rendered layouts/shared/_footer.html.erb (0.4ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.4ms)
+Completed 200 OK in 768ms (Views: 298.9ms | ActiveRecord: 13.2ms)
+
+
+Started GET "/school_branches" for ::1 at 2021-09-17 23:01:24 +0500
+Processing by SchoolBranchesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering school_branches/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (0.6ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  Rendered school_branches/index.html.erb within layouts/application (6.3ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.1ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.7ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.3ms)
+Completed 200 OK in 120ms (Views: 113.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/" for ::1 at 2022-01-22 22:17:26 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (41.8ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:HomeController> at /home/devbox/offline/schooless/app/controllers/home_controller.rb:2)
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (3.0ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (27.1ms)
+Completed 200 OK in 2284ms (Views: 2039.7ms | ActiveRecord: 67.7ms)
+
+
+Started GET "/students" for ::1 at 2022-01-22 22:17:34 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (2.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (5.9ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.7ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (1.5ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.2ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.8ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (2.1ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (0.8ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (235.2ms)
+  Rendered layouts/shared/_sidebar.html.erb (4.7ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (3.1ms)
+  Rendered layouts/shared/_footer.html.erb (1.9ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.8ms)
+Completed 200 OK in 3654ms (Views: 531.1ms | ActiveRecord: 87.0ms)
+
+
+Started GET "/students" for ::1 at 2022-01-22 22:19:17 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.7ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (15.8ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.4ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.2ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (2.3ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (0.9ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (1.7ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (51.8ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.7ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.7ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.3ms)
+Completed 200 OK in 1583ms (Views: 191.6ms | ActiveRecord: 41.8ms)
+
+
+Started GET "/students" for ::1 at 2022-01-22 22:19:31 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (13.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (2.8ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (12.3ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.6ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (2.5ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (5.8ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (1.0ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (3.1ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (81.8ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.0ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.6ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.3ms)
+Completed 200 OK in 391ms (Views: 226.4ms | ActiveRecord: 50.3ms)
+
+
+Started GET "/students" for ::1 at 2022-01-22 22:19:49 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 421ms (ActiveRecord: 0.7ms)
+
+
+  
+NameError (undefined local variable or method `bbbbb' for #<StudentsController:0x00007f7e2c93cce8>):
+  
+app/controllers/students_controller.rb:17:in `index'
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.4ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.3ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (169.9ms)
+Started PUT "/__web_console/repl_sessions/2d6ca84b00bd2a988e70b0292cd85c1e" for ::1 at 2022-01-22 22:19:58 +0500
+Started PUT "/__web_console/repl_sessions/2d6ca84b00bd2a988e70b0292cd85c1e" for ::1 at 2022-01-22 22:20:00 +0500
+Started GET "/students" for ::1 at 2022-01-22 22:20:37 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.5ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.2ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.2ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (1.2ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (2.0ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 1 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (44.6ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.5ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (1.0ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.3ms)
+Completed 200 OK in 443ms (Views: 158.2ms | ActiveRecord: 9.2ms)
+
+
+Started GET "/" for ::1 at 2022-05-17 23:59:25 +0500
+  [1m[36mActiveRecord::SchemaMigration Load (26.1ms)[0m  [1m[34mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:HomeController> at /home/devbox/offline/schooless/app/controllers/home_controller.rb:2)
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/home
+  Rendered home/index.html.erb within layouts/home (5.5ms)
+Completed 200 OK in 1045ms (Views: 1028.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-05-17 23:59:30 +0500
+DEPRECATION WARNING: skip_before_filter is deprecated and will be removed in Rails 5.1. Use skip_before_action instead. (called from <class:SessionsController> at /home/devbox/offline/schooless/app/controllers/devise/sessions_controller.rb:8)
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/devise
+  Rendered devise/shared/_links.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/devise (45.1ms)
+Completed 200 OK in 199ms (Views: 140.2ms | ActiveRecord: 45.3ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` DESC LIMIT 1[0m
+Started POST "/users/sign_in" for ::1 at 2022-05-18 00:02:30 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xeeEvbrezc3+rv+kq/V9vfp140eZB/q8moBKCNjbEEyI9aPo7M413KUPJvQ+OngchbCE+nc6UxwvcQz+wnBDrw==", "user"=>{"email"=>"test@school.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@school.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 184ms (ActiveRecord: 3.6ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"xeeEvbrezc3+rv+kq/V9vfp140eZB/q8moBKCNjbEEyI9aPo7M413KUPJvQ+OngchbCE+nc6UxwvcQz+wnBDrw==", "user"=>{"email"=>"test@school.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/devise
+  Rendered devise/shared/_links.html.erb (0.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/devise (3.5ms)
+Completed 200 OK in 257ms (Views: 99.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-05-18 00:02:39 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0dwV2EslGlHA16pbcRRT7pLf3wngqN1aAZ+N6qpmCcyczjKNHTXiQJt2cwvk21ZP7Rq4tA6VdPq0bsscsM1aLw==", "user"=>{"email"=>"test@school.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@school.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+Completed 401 Unauthorized in 170ms (ActiveRecord: 3.3ms)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"0dwV2EslGlHA16pbcRRT7pLf3wngqN1aAZ+N6qpmCcyczjKNHTXiQJt2cwvk21ZP7Rq4tA6VdPq0bsscsM1aLw==", "user"=>{"email"=>"test@school.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering devise/sessions/new.html.erb within layouts/devise
+  Rendered devise/shared/_links.html.erb (0.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/devise (2.9ms)
+Completed 200 OK in 260ms (Views: 103.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` ORDER BY `users`.`id` DESC LIMIT 1[0m
+Started POST "/users/sign_in" for ::1 at 2022-05-18 00:04:15 +0500
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"AfppdvNJeYII3ho9lkWQF8ArRCkxiU1mfTbDzetfDflM6E4jpVmBk1N/w20DipW2v+4jlN+05MbIx4U78fReGg==", "user"=>{"email"=>"test@school.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`email` = 'test@school.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.6ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+Redirected to http://localhost:3000/students
+Completed 302 Found in 261ms (ActiveRecord: 15.5ms)
+
+
+Started GET "/students" for ::1 at 2022-05-18 00:04:15 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.7ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (2.6ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.3ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.6ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (0.6ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (0.9ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (48.2ms)
+  Rendered layouts/shared/_sidebar.html.erb (2.6ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (3.6ms)
+  Rendered layouts/shared/_footer.html.erb (0.6ms)
+  Rendered layouts/shared/_alert_model.html.erb (2.3ms)
+Completed 200 OK in 863ms (Views: 271.8ms | ActiveRecord: 42.4ms)
+
+
+Started GET "/students" for ::1 at 2022-05-18 00:08:02 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (2.2ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (5.2ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (13.2ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.6ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (4.5ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (7.1ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (0.7ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (79.9ms)
+  Rendered layouts/shared/_sidebar.html.erb (3.0ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (1.2ms)
+  Rendered layouts/shared/_footer.html.erb (0.4ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.5ms)
+Completed 200 OK in 1704ms (Views: 287.9ms | ActiveRecord: 39.1ms)
+
+
+Started GET "/unpaid_students" for ::1 at 2022-05-18 00:08:32 +0500
+Processing by UnpaidStudentsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.7ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT `student_fees`.`student_id` FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee')[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0)[0m
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE (deleted=false AND student_type = 0 OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  DISTINCT `students`.* FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  Rendering unpaid_students/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (0.5ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  [1m[36mLevel Load (1.2ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.9ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT count_column) FROM (SELECT  DISTINCT `students`.`id` AS count_column FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0) subquery_for_count[0m
+  [1m[36mSchoolBranch Load (0.3ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/index.html.erb within layouts/application (25.6ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.2ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (2.2ms)
+  Rendered layouts/shared/_footer.html.erb (0.6ms)
+  Rendered layouts/shared/_alert_model.html.erb (1.2ms)
+Completed 200 OK in 381ms (Views: 239.3ms | ActiveRecord: 13.9ms)
+
+
+Started GET "/unpaid_students" for ::1 at 2022-05-18 00:09:52 +0500
+Processing by UnpaidStudentsController#index as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (2.6ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT `student_fees`.`student_id` FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee')[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0)[0m
+  [1m[36mStudent Load (1.7ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE (deleted=false AND student_type = 0 OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[36mStudent Load (1.6ms)[0m  [1m[34mSELECT  DISTINCT `students`.* FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  Rendering unpaid_students/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (1.3ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  [1m[36mLevel Load (2.1ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (1.9ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(DISTINCT count_column) FROM (SELECT  DISTINCT `students`.`id` AS count_column FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0) subquery_for_count[0m
+  [1m[36mSchoolBranch Load (0.5ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/index.html.erb within layouts/application (55.1ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.3ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.8ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.4ms)
+Completed 200 OK in 709ms (Views: 250.5ms | ActiveRecord: 20.1ms)
+
+
+Started GET "/unpaid_students/print_all_without_balance.pdf" for ::1 at 2022-05-18 00:10:13 +0500
+Processing by UnpaidStudentsController#print_all_without_balance as PDF
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1[0m
+  [1m[36mClassSection Load (1.1ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (1.2ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.9ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1[0m
+  Rendered unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html (13.9ms)
+Completed 200 OK in 28ms (Views: 16.7ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/unpaid_students/print_all.pdf" for ::1 at 2022-05-18 00:11:13 +0500
+Processing by UnpaidStudentsController#print_all as PDF
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.3ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1[0m
+  [1m[36mClassSection Load (0.5ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.8ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (1.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mSchoolBranch Load (2.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/_print_student.pdf.erb (17.1ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1[0m
+  Rendered unpaid_students/print_all.pdf.erb within layouts/pdf.html (20.9ms)
+Completed 200 OK in 31ms (Views: 20.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/unpaid_students?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfather_name_cont%5D=&q%5Bschool_branch_id_eq%5D=&q%5Bclass_section_level_id_eq%5D=&q%5Bclass_section_section_id_eq%5D=&unpaid_student%5Bmonth%5D=5&unpaid_student%5Byear%5D=2022&sms_msg=&sms_all_urdu=Print+for+all" for ::1 at 2022-05-18 00:11:21 +0500
+Processing by UnpaidStudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"name_cont"=>"", "father_name_cont"=>"", "school_branch_id_eq"=>"", "class_section_level_id_eq"=>"", "class_section_section_id_eq"=>""}, "unpaid_student"=>{"month"=>"5", "year"=>"2022"}, "sms_msg"=>"", "sms_all_urdu"=>"Print for all"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.0ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT `student_fees`.`student_id` FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = '5' AND extract(year from student_fees.paid_date) = '2022' AND student_fees.fee_type = 'Fee')[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0)[0m
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE (deleted=false AND student_type = 0 OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[36mStudent Load (0.6ms)[0m  [1m[34mSELECT  DISTINCT `students`.* FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  Rendering unpaid_students/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.2ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(DISTINCT count_column) FROM (SELECT  DISTINCT `students`.`id` AS count_column FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0) subquery_for_count[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/index.html.erb within layouts/application (17.9ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.1ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.7ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.4ms)
+Completed 200 OK in 509ms (Views: 118.6ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/unpaid_students/print_all_without_balance.pdf" for ::1 at 2022-05-18 00:11:24 +0500
+Processing by UnpaidStudentsController#print_all_without_balance as PDF
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1[0m
+  [1m[36mClassSection Load (0.9ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.7ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1[0m
+  Rendered unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html (16.5ms)
+Completed 200 OK in 26ms (Views: 19.7ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/unpaid_students?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfather_name_cont%5D=&q%5Bschool_branch_id_eq%5D=&q%5Bclass_section_level_id_eq%5D=&q%5Bclass_section_section_id_eq%5D=&unpaid_student%5Bmonth%5D=5&unpaid_student%5Byear%5D=2022&sms_msg=&sms_all_urdu=Print+for+all" for ::1 at 2022-05-18 00:16:11 +0500
+Processing by UnpaidStudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"name_cont"=>"", "father_name_cont"=>"", "school_branch_id_eq"=>"", "class_section_level_id_eq"=>"", "class_section_section_id_eq"=>""}, "unpaid_student"=>{"month"=>"5", "year"=>"2022"}, "sms_msg"=>"", "sms_all_urdu"=>"Print for all"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.6ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT `student_fees`.`student_id` FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = '5' AND extract(year from student_fees.paid_date) = '2022' AND student_fees.fee_type = 'Fee')[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0)[0m
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE (deleted=false AND student_type = 0 OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT  DISTINCT `students`.* FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  Rendering unpaid_students/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (1.3ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  [1m[36mLevel Load (0.6ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(DISTINCT count_column) FROM (SELECT  DISTINCT `students`.`id` AS count_column FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0) subquery_for_count[0m
+  [1m[36mSchoolBranch Load (0.3ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/index.html.erb within layouts/application (54.1ms)
+  Rendered layouts/shared/_sidebar.html.erb (2.1ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (2.1ms)
+  Rendered layouts/shared/_footer.html.erb (0.3ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.5ms)
+Completed 200 OK in 637ms (Views: 155.7ms | ActiveRecord: 17.6ms)
+
+
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:16:17 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT `students`.* FROM `students`[0m
+Completed 500 Internal Server Error in 430ms (ActiveRecord: 5.3ms)
+
+
+  
+NameError (undefined local variable or method `unpaid_students_search_date' for #<UnpaidStudentsController:0x00007f378854e7c0>
+Did you mean?  unpaid_students_path):
+  
+app/controllers/unpaid_students_controller.rb:225:in `print_for_all'
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.6ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (251.8ms)
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:16:53 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.5ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.8ms)
+
+
+  
+ActionView::MissingTemplate (Missing template unpaid_students/print_for_all with {:locale=>[:en], :formats=>[:pdf], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder, :haml]}. Searched in:
+  * "/home/devbox/offline/schooless/app/views"
+  * "/home/devbox/.rvm/gems/ruby-2.6.3/gems/rails_admin-2.0.0/app/views"
+  * "/home/devbox/.rvm/gems/ruby-2.6.3/gems/devise-4.7.0/app/views"
+  * "/home/devbox/.rvm/gems/ruby-2.6.3/gems/kaminari-core-1.1.1/app/views"
+):
+  
+app/controllers/unpaid_students_controller.rb:233:in `block (2 levels) in print_for_all'
+app/controllers/unpaid_students_controller.rb:230:in `print_for_all'
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (4.5ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.8ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.2ms)
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (24.2ms)
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:18:08 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.3ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT `students`.* FROM `students`[0m
+  [1m[36mClassSection Load (0.3ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/_print_student.pdf.erb (57.2ms)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `students`[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (117.9ms)
+Completed 200 OK in 141ms (Views: 109.6ms | ActiveRecord: 20.8ms)
+
+
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:20:38 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (1.1ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT `students`.* FROM `students`[0m
+  [1m[36mClassSection Load (0.7ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.8ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/_print_student.pdf.erb (23.2ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `students`[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (33.5ms)
+Completed 200 OK in 59ms (Views: 38.9ms | ActiveRecord: 6.9ms)
+
+
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:20:50 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (3.2ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.8ms)[0m  [1m[34mSELECT `students`.* FROM `students`[0m
+  [1m[36mClassSection Load (0.6ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.8ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/_print_student.pdf.erb (17.5ms)
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM `students`[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (26.7ms)
+Completed 200 OK in 61ms (Views: 34.5ms | ActiveRecord: 8.4ms)
+
+
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mStudent Load (3.7ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 'Normals'[0m
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 'Normals'[0m
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 1[0m
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 1[0m
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:24:30 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.3ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mClassSection Load (0.3ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.8ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.3ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/_print_student.pdf.erb (36.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`student_type` = 0[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (54.5ms)
+Completed 200 OK in 94ms (Views: 55.3ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/unpaid_students/print_all_without_balance.pdf" for ::1 at 2022-05-18 00:24:40 +0500
+Processing by UnpaidStudentsController#print_all_without_balance as PDF
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1[0m
+  [1m[36mClassSection Load (0.5ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (1.4ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1[0m
+  Rendered unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html (11.7ms)
+Completed 200 OK in 21ms (Views: 13.7ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:25:49 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (2.7ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mClassSection Load (0.4ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (3.4ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/_print_student.pdf.erb (14.8ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`student_type` = 0[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (22.4ms)
+Completed 200 OK in 32ms (Views: 19.9ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/unpaid_students/print_all_without_balance.pdf" for ::1 at 2022-05-18 00:25:53 +0500
+Processing by UnpaidStudentsController#print_all_without_balance as PDF
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.6ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1[0m
+  [1m[36mClassSection Load (0.3ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1[0m
+  Rendered unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html (11.0ms)
+Completed 200 OK in 20ms (Views: 13.1ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/unpaid_students/print_all_without_balance.pdf" for ::1 at 2022-05-18 00:26:03 +0500
+Processing by UnpaidStudentsController#print_all_without_balance as PDF
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1[0m
+  [1m[36mClassSection Load (0.3ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (1.2ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (2.6ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1[0m
+  Rendered unpaid_students/print_all_without_balance.pdf.erb within layouts/pdf.html (21.4ms)
+Completed 200 OK in 30ms (Views: 18.1ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/unpaid_students?utf8=%E2%9C%93&q%5Bname_cont%5D=&q%5Bfather_name_cont%5D=&q%5Bschool_branch_id_eq%5D=&q%5Bclass_section_level_id_eq%5D=&q%5Bclass_section_section_id_eq%5D=&unpaid_student%5Bmonth%5D=5&unpaid_student%5Byear%5D=2022&sms_msg=&search_submit=Search" for ::1 at 2022-05-18 00:27:36 +0500
+Processing by UnpaidStudentsController#index as HTML
+  Parameters: {"utf8"=>"✓", "q"=>{"name_cont"=>"", "father_name_cont"=>"", "school_branch_id_eq"=>"", "class_section_level_id_eq"=>"", "class_section_section_id_eq"=>""}, "unpaid_student"=>{"month"=>"5", "year"=>"2022"}, "sms_msg"=>"", "search_submit"=>"Search"}
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.5ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT `student_fees`.`student_id` FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = '5' AND extract(year from student_fees.paid_date) = '2022' AND student_fees.fee_type = 'Fee')[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0)[0m
+  [1m[36mStudent Load (1.7ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE (deleted=false AND student_type = 0 OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)[0m
+  [1m[36mStudent Load (1.9ms)[0m  [1m[34mSELECT  DISTINCT `students`.* FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  Rendering unpaid_students/index.html.erb within layouts/application
+  [1m[36mSchoolBranch Load (1.4ms)[0m  [1m[34mSELECT `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1[0m
+  [1m[36mLevel Load (1.2ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (1.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT COUNT(DISTINCT count_column) FROM (SELECT  DISTINCT `students`.`id` AS count_column FROM `students` WHERE (1=1) AND (deleted=false AND student_type = 0) LIMIT 55 OFFSET 0) subquery_for_count[0m
+  [1m[36mSchoolBranch Load (0.7ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  Rendered unpaid_students/index.html.erb within layouts/application (52.3ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.0ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.6ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.3ms)
+Completed 200 OK in 6633ms (Views: 150.6ms | ActiveRecord: 20.3ms)
+
+
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:27:47 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`student_type` = 0[0m
+  [1m[36mClassSection Load (0.3ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.3ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`student_type` = 0[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (61.2ms)
+Completed 200 OK in 69ms (Views: 63.2ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/students" for ::1 at 2022-05-18 00:30:57 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.5ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 1.0ms)
+
+
+  
+Errno::EHOSTUNREACH (Failed to open TCP connection to sms4connect.com:80 (No route to host - connect(2) for "sms4connect.com" port 80)):
+  
+app/controllers/students_controller.rb:13:in `index'
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (3.6ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.1ms)
+  Rendering /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /home/devbox/.rvm/gems/ruby-2.6.3/gems/actionpack-5.0.7.2/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (18.3ms)
+Started GET "/students" for ::1 at 2022-05-18 00:31:37 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (3.7ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35mSQL (6.4ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.4ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.5ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.0ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (1.0ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (0.9ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (0.8ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (52.7ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.0ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.7ms)
+  Rendered layouts/shared/_footer.html.erb (0.2ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.3ms)
+Completed 200 OK in 1124ms (Views: 177.1ms | ActiveRecord: 20.8ms)
+
+
+Started GET "/students" for ::1 at 2022-05-18 00:36:58 +0500
+Processing by StudentsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.8ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT DISTINCT COUNT(DISTINCT `students`.`id`) FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[35m (2.8ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[35mSQL (2.0ms)[0m  [1m[34mSELECT DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendering students/index.html.erb within layouts/application
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m
+  [1m[36mClassSection Load (0.4ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (0.8ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[36mCACHE (0.1ms)[0m  [1m[34mSELECT DISTINCT `students`.* FROM `students` WHERE `students`.`deleted` = 0[0m  [["deleted", 0]]
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT `levels`.* FROM `levels`[0m
+  [1m[36mSection Load (0.4ms)[0m  [1m[34mSELECT `sections`.* FROM `sections`[0m
+  [1m[35mSQL (1.3ms)[0m  [1m[34mSELECT  DISTINCT `students`.`id` AS t0_r0, `students`.`name` AS t0_r1, `students`.`date_of_birth` AS t0_r2, `students`.`phone_no` AS t0_r3, `students`.`monthly_fee` AS t0_r4, `students`.`address` AS t0_r5, `students`.`class_section_id` AS t0_r6, `students`.`created_at` AS t0_r7, `students`.`updated_at` AS t0_r8, `students`.`father_name` AS t0_r9, `students`.`balance` AS t0_r10, `students`.`school_branch_id` AS t0_r11, `students`.`terminated` AS t0_r12, `students`.`terminated_at` AS t0_r13, `students`.`deleted` AS t0_r14, `students`.`deleted_at` AS t0_r15, `students`.`gender` AS t0_r16, `students`.`admission` AS t0_r17, `students`.`security` AS t0_r18, `students`.`paper_fund` AS t0_r19, `students`.`admission_balance` AS t0_r20, `students`.`security_balance` AS t0_r21, `students`.`paper_fund_balance` AS t0_r22, `students`.`student_type` AS t0_r23, `students`.`phone_sec` AS t0_r24, `class_sections`.`id` AS t1_r0, `class_sections`.`level_id` AS t1_r1, `class_sections`.`section_id` AS t1_r2, `class_sections`.`created_at` AS t1_r3, `class_sections`.`updated_at` AS t1_r4, `class_sections`.`school_branch_id` AS t1_r5, `levels`.`id` AS t2_r0, `levels`.`name` AS t2_r1, `levels`.`comment` AS t2_r2, `levels`.`created_at` AS t2_r3, `levels`.`updated_at` AS t2_r4, `levels`.`school_id` AS t2_r5, `levels`.`school_branch_id` AS t2_r6, `sections`.`id` AS t3_r0, `sections`.`name` AS t3_r1, `sections`.`school_id` AS t3_r2, `sections`.`created_at` AS t3_r3, `sections`.`updated_at` AS t3_r4, `sections`.`school_branch_id` AS t3_r5 FROM `students` INNER JOIN `class_sections` ON `class_sections`.`id` = `students`.`class_section_id` INNER JOIN `levels` ON `levels`.`id` = `class_sections`.`level_id` INNER JOIN `sections` ON `sections`.`id` = `class_sections`.`section_id` WHERE `students`.`deleted` = 0 ORDER BY `students`.`id` ASC LIMIT 55 OFFSET 0[0m
+  [1m[36mSchoolBranch Load (0.4ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`id` = 1 LIMIT 1[0m
+  [1m[36mStudentFee Load (0.5ms)[0m  [1m[34mSELECT `student_fees`.* FROM `student_fees` WHERE (extract(month from student_fees.paid_date) = 5 AND extract(year from student_fees.paid_date) = 2022 AND student_fees.fee_type = 'Fee' AND student_id IN (1))[0m
+  Rendered students/index.html.erb within layouts/application (48.7ms)
+  Rendered layouts/shared/_sidebar.html.erb (1.4ms)
+  Rendered layouts/shared/_navigation_bar.html.erb (0.8ms)
+  Rendered layouts/shared/_footer.html.erb (1.7ms)
+  Rendered layouts/shared/_alert_model.html.erb (0.8ms)
+Completed 200 OK in 1003ms (Views: 184.8ms | ActiveRecord: 13.5ms)
+
+
+Started GET "/unpaid_students/print_for_all.pdf" for ::1 at 2022-05-18 00:37:01 +0500
+Processing by UnpaidStudentsController#print_for_all as PDF
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mSchoolBranch Load (0.6ms)[0m  [1m[34mSELECT  `school_branches`.* FROM `school_branches` WHERE `school_branches`.`school_id` = 1 AND `school_branches`.`active` = 1 LIMIT 1[0m
+  Rendering unpaid_students/print_for_all.pdf.erb within layouts/pdf.html
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT `students`.* FROM `students` WHERE `students`.`id` = 1 AND `students`.`student_type` = 0[0m
+  [1m[36mClassSection Load (0.6ms)[0m  [1m[34mSELECT  `class_sections`.* FROM `class_sections` WHERE `class_sections`.`id` = 3 LIMIT 1[0m
+  [1m[36mLevel Load (0.6ms)[0m  [1m[34mSELECT  `levels`.* FROM `levels` WHERE `levels`.`id` = 2 LIMIT 1[0m
+  [1m[36mSection Load (1.2ms)[0m  [1m[34mSELECT  `sections`.* FROM `sections` WHERE `sections`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `students` WHERE `students`.`id` = 1 AND `students`.`student_type` = 0[0m
+  Rendered unpaid_students/print_for_all.pdf.erb within layouts/pdf.html (12.1ms)
+Completed 200 OK in 34ms (Views: 15.0ms | ActiveRecord: 12.5ms)
+
+

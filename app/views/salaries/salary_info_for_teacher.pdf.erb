@@ -1,0 +1,47 @@
+<% @date = Date.today  %>
+<h1 style="text-align: center;">Educational School System</h1>
+<p style="border-bottom: double 4px; "></p>
+<h2 style="text-align: center;">Salary Slip (<%= @date.strftime("%B")%> 2019)</h2>
+<p style="border-bottom: double 4px; "></p>
+<div style="width:90vw;">
+
+  <table>
+    <tr>
+      <td style="border-bottom: 1px solid #000; width:40vw;"><%=@salary.teacher.name.capitalize %></td>
+      <td style="border-bottom: 1px solid #000; width:40vw;"><%=@salary.teacher.father %></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid #000; ">Date Of Joining</td>
+      <td style="border-bottom: 1px solid #000;  "><%=@salary.teacher.date_of_joining %></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid #000;  ">Class: </td>
+      <td style="border-bottom: 1px solid #000;  "><%=@salary.teacher.level.present? ? @salary.teacher.level.name : ' '%></td>
+    </tr>
+    <tr>
+      <td style="border-bottom: 1px solid #000;  ">Section: </td>
+      <td style="border-bottom: 1px solid #000;  "><%=@salary.teacher.section.present? ? @salary.teacher.section.name : ' '%></td>
+    </tr>
+  </table>
+  <table>
+    <th style="border: 1px solid #000; width:40vw;">Detail</th>
+    <th style="border-bottom: 1px solid #000; border-top: 1px solid #000;border-left: 1px solid #000;width:40vw;">Amount</th>
+    <tr>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #000; ">Monthly Salary</td>
+      <td style="border-bottom: 1px solid #000; border-top: 1px solid #000;border-left: 1px solid #000; "><%=@salary.teacher.monthly_salary %></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #000; ">Leaves: </td>
+      <td style="border-bottom: 1px solid #000; border-top: 1px solid #000;border-left: 1px solid #000;"><%=@salary.leaves_in_month%></td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #000; ">Paid Salary: </td>
+      <td style="border-bottom: 1px solid #000; border-top: 1px solid #000;border-left: 1px solid #000; "><%=@salary.paid_salary%></td>
+    </tr>
+  </table>
+  <p>
+  We are Thankful For your Trust in Educational School System.
+  </p>
+</div>

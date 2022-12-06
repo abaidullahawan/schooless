@@ -1,0 +1,136 @@
+<div class="hidden" id="students_list">
+  <h1>Students | SMS Balance: <%=@api_balance.to_f%> | Remaing later <span id="later">160</span> | <span id="later_urdu">70</span></h1>
+  <div class="row col-lg-12 form-group float-left">
+    <div class="col-lg-12">
+      <%= link_to 'New Student', new_student_path, class: "btn btn-primary" %>
+    </div>
+  </div>
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <%= search_form_for @q, url: students_path,class: "admin-controls", method: "get" do |f| %>
+        <div class="col-lg-4 form-group float-left">
+          <%= f.select :name_cont, options_from_collection_for_select(@students_list_by_name, "name", ->(st){"#{st.name} \u{27F6} #{st.class_section.level.name} , #{st.class_section.section.name}"}),{:include_blank => "Select Name"},:class=>"form-control select_chosen" %>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <%= f.select :father_name_cont, options_from_collection_for_select(@students_list_by_fname, "father_name", "father_name"),{:include_blank => "Select Father Name"},:class=>"form-control select_chosen" %>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <%= f.select :class_section_level_id_eq, options_from_collection_for_select(Level.all, "id", "name", session[:level_id]),{:include_blank => "Select Class"},:class=>"form-control " %>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <%= f.select :class_section_section_id_eq, options_from_collection_for_select(Section.all, "id", "name", session[:section_id]),{:include_blank => "Select Section"},:class=>"form-control " %>
+        </div>
+        <div class="col-lg-12 form-group float-left">
+          <textarea name="sms_msg" class="form-control" onkeyup="countChar(this)"></textarea>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <input class="form-control btn btn-primary" name="search_submit" type="submit" value="Search"></input>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <input class="form-control btn btn-primary" name="search_pdf" type="submit" value="Phone List"  formtarget="_blank"></input>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <input class="form-control btn btn-primary" name="search_pdf_list" type="submit" value="Active List"  formtarget="_blank"></input>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <input class="form-control btn btn-primary" name="fee_list" type="submit" value="Fee List"  formtarget="_blank"></input>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <input class="form-control btn btn-primary" name="sms_all_eng" type="submit" value="SMS English"></input>
+        </div>
+        <div class="col-lg-4 form-group float-left">
+          <input class="form-control btn btn-primary" name="sms_all_urdu" type="submit" value="SMS Urdu"></input>
+        </div>
+      <div class="col-lg-4 form-group float-left">
+        <%= link_to 'Print For All', print_for_all_unpaid_students_path(format: :pdf), class: "col-lg-12 btn btn-primary float-right", target: "_blank" %>
+      </div>
+
+      <% end %>
+    </div>
+  </div>
+<div class="row">
+  <div class="col-lg-12 col-sm-12">
+    <table data-toggle="table" data-search="true">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :id, 'ID') %></th>
+          <th><%= sort_link(@q, :name, 'Name') %></th>
+          <th><%= sort_link(@q, :father, 'Father Name') %></th>
+          <th>Branch Name</th>
+          <th><%= sort_link(@q, :class_section_level_name, 'Class') %></th>
+          <th><%= sort_link(@q, :class_section_section_name, 'Section') %></th>
+          <th><%= sort_link(@q, :monthly_fee, 'Monthly fee') %></th>
+          <th><%= sort_link(@q, :balance, 'Balance') %></th>
+          <th><%= sort_link(@q, :phone_no, 'Phone no') %></th>
+          <th class="border_none"><%=@total_paid%>/<%=@students.length%></th>
+          <th class="border_none"></th>
+          <th class="border_none">Actions</th>
+          <th class="border_none"></th>
+          <th class="border_none"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @students.each do |student| %>
+          <tr>
+            <td><%= student.id %></td>
+            <td><%= student.name %></td>
+            <td><%= student.father_name %></td>
+            <td><%= student.school_branch.name %></td>
+            <td><%= student.class_section.level.name %></td>
+            <td><%= student.class_section.section.name %></td>
+            <td><%= student.monthly_fee %></td>
+            <td><%= student.balance %> / <%= student.admission_balance %> / <%= student.security_balance %> / <%= student.paper_fund_balance %></td>
+            <td><%= student.phone_no %></td>
+            <% already_paid = student_paid_this_month_fee?(student) %>
+            <%if (student.admission_balance.present? and student.admission_balance<0) or (student.security_balance.present? and student.security_balance<0) or (student.paper_fund_balance.present? and student.paper_fund_balance<0)%>
+              <td>
+                <%= link_to 'Charge Balance', edit_student_path(student.id) %>
+                <%= link_to 'Charge Fee', new_student_fee_path(:student_id => student.id) %>
+              </td>
+            <%elsif student.balance.present? and student.balance<0%>
+              <td><%= link_to 'Charge Fee', new_student_fee_path(:student_id => student.id) %></td>
+            <%elsif already_paid %>
+              <td>
+                <div class="" style="background-color:chartreuse;margin: -12px;padding: 11px;">
+                  <%= link_to 'Charge Fee', "javascript:void(0)", title: "Fee already paid for this month", class: "isDisabled" %>
+                </div>
+              </td>
+            <%else%>
+              <td><%= link_to 'Charge Fee', pay_now_student_path(student), data: { confirm: 'Are you sure?' } %></td>
+            <%end%>
+            <td><%= link_to 'Edit', edit_student_path(student) %></td>
+            <td><%= link_to 'Show', student %></td>
+            <% if student.terminated? %>
+              <td><%= link_to 'Activate', activate_student_path(student) %></td>
+            <% else %>
+              <td><%= link_to 'Terminate', terminate_student_path(student) %></td>
+            <% end %>
+            <td><%= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-lg-4 col-sm-4">
+    <%= page_entries_info @students %>
+  </div>
+  <div class="col-lg-8 col-sm-8 pagination-left">
+    <%= paginate @students %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#students_list").removeClass('hidden');
+  });
+</script>

@@ -1,0 +1,12 @@
+<p>
+  <strong>Level:</strong>
+  <%= @class_section.level %>
+</p>
+
+<p>
+  <strong>Section:</strong>
+  <%= @class_section.section %>
+</p>
+
+<%= link_to 'Edit', edit_class_section_path(@class_section) %> |
+<%= link_to 'Back', class_sections_path %>

@@ -1,0 +1,2 @@
+module WidowsHelper
+end

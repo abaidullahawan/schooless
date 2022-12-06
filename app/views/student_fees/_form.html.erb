@@ -1,0 +1,82 @@
+<%= bootstrap_form_for(student_fee) do |f| %>
+  <% if student_fee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student_fee.errors.count, "error") %> prohibited this school from being saved:</h2>
+
+      <ul>
+      <% student_fee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if f.object.persisted? %>
+      <%= f.select :student_id, options_from_collection_for_select(@students_list, 'id', 'name',f.object.student.id), {prompt: "Select the Student"}, { class: "form-control", onchange: 'set_balance_fee(); return false;', required: true } %>
+      <div class="field form-group">
+        <label for="student_fee_student_id">Class</label>
+        <%= text_field_tag :fee_level, nil, class: "form-control", disabled: true %>
+      </div>
+      <div class="field form-group">
+        <label for="student_fee_student_id">Section</label>
+        <%= text_field_tag :fee_section, nil, class: "form-control", disabled: true %>
+      </div>
+  <% else %>
+    <%= f.select :student_id, options_from_collection_for_select(@students_list, 'id', ->(st){"#{st.name} \u{27F6} #{st.father_name}"},params[:student_id]), {prompt: "Select the Student \u{27F6} Father"}, {class: "form-control chosen-select", onchange: 'set_balance_fee(); return false;', required: true } %>
+    <div class="hidden" id="fee_father_school_branch">
+      <div class="field form-group">
+        <label for="student_fee_student_id">Father name</label>
+        <%= text_field_tag :fee_father_name, nil, class: "form-control", disabled: true %>
+      </div>
+      <div class="field form-group">
+        <label for="student_fee_student_id">School Branch</label>
+        <%= text_field_tag :fee_school_branch, nil, class: "form-control", disabled: true %>
+      </div>
+      <div class="field form-group">
+        <label for="student_fee_student_id">Class</label>
+        <%= text_field_tag :fee_level, nil, class: "form-control", disabled: true %>
+      </div>
+      <div class="field form-group">
+        <label for="student_fee_student_id">Section</label>
+        <%= text_field_tag :fee_section, nil, class: "form-control", disabled: true %>
+      </div>
+    </div>
+  <% end %>
+  <%if params[:student_id].present? %>
+    <%= f.select :fee_type, ['Fee'],  { class: "form-control", required: true, onchange: 'toggle_fee_fields(this.value); return false;' } %>
+  <%else%>
+    <%= f.select :fee_type, ['Fee','Admission Fee','Security', 'Paper Fund','Other Charges'], { class: "form-control", required: true, onchange: 'toggle_fee_fields(this.value); return false;' } %>
+  <%end%>
+  <% if f.object.persisted? and f.object.fee_type != "Fee"
+    @add_hidden_class = "hidden"
+   end %>
+  <div class="field form-group <%= @add_hidden_class %>" id="monthly_fee_dev">
+    <label for="student_fee_student_id">Monthly Fee</label>
+    <% st_original_fee = f.object.persisted? ? f.object.student.monthly_fee : "select student first" %>
+    <%= text_field_tag :original_fee, st_original_fee, class: "form-control", disabled: true %>
+  </div>
+
+  <% if f.object.persisted? and f.object.fee_type == "Fee" %>
+    <%= hidden_field_tag :already_paid_fee, f.object.paid_fee %>
+  <% end %>
+  <%= f.number_field :paid_fee, class: "form-control", onfocusout: "set_new_balance(); return false;", required: true %>
+
+  <div id="balance_div">
+    <% st_balance = f.object.persisted? ? f.object.student.balance : "select student first" %>
+    <%= hidden_field_tag :original_balance, st_balance%>
+    <%= f.text_field :balance, value: st_balance, class: "form-control", readonly: true %>
+  </div>
+
+  <%= f.date_select :paid_date, class: "form-control" %>
+
+  <div class="actions">
+    <%= link_to 'School Fee', student_fees_path, class: "btn btn-info" %>
+    <%= f.submit class: "btn btn-primary", style: "float: right" %>
+  </div>
+<% end %>
+<script type="text/javascript">
+  $('.chosen-select').chosen({
+    allow_single_deselect: true,
+    no_results_text: 'No results matched',
+  });
+  set_balance_fee();
+</script>

@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-lg-12 col-sm-12">
+    <div id = "expenses_detail">
+      <table data-toggle="table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Fee</th>
+            <th>Admission Fee</th>
+            <th>Security</th>
+            <th>Paper Fund</th>
+            <th>Other Charges</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%@revenue_by_type.each do |ex|%>
+              <tr>
+                <%total=0%>
+                <td><%=ex.first%></td>
+                <td><%=ex.last['Fee']%>               <%total=total+(ex.last['Fee'].present? ? ex.last['Fee'] :0)%></td>
+                <td><%=ex.last['Admission Fee']%>               <%total=total+(ex.last['Admission Fee'].present? ? ex.last['Admission Fee'] :0)%></td>
+                <td><%=ex.last['Security']%>               <%total=total+(ex.last['Security'].present? ? ex.last['Security'] :0)%></td>
+                <td><%=ex.last['Paper Fund']%>               <%total=total+(ex.last['Paper Fund'].present? ? ex.last['Paper Fund'] :0)%></td>
+                <td><%=ex.last['Other Charges']%>               <%total=total+(ex.last['Other Charges'].present? ? ex.last['other Charges'] :0)%></td>
+                <td><%=total%></td>
+              </tr>
+            <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#expenses_list").removeClass('hidden');
+  });
+</script>

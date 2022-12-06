@@ -1,0 +1,33 @@
+<% @students.each_with_index do |student, indx| %>
+<% @date = Date.today  %>
+<h1 style="text-align: center;">Educational School System</h1>
+<p style="border-bottom: double 4px; "></p>
+<div style="width:90vw;">
+  <p>
+  Dear Parents,
+  <br>
+  <%if Date.today.day<=6%>
+    <span><%= student.name.capitalize %></span> Father name is <span><%= student.father_name.capitalize %></span>, Student of <span><%= student.class_section.level.name+" " %><%= student.class_section.section.name%></span> is very good in Studies.
+    It is inform you that <b><%=Date.today.strftime('%B 6, %y')%></b> is the last date to pay the school fee without fine. 
+  <%else%>
+    <span><%= student.name.capitalize %></span> Father name is <span><%= student.father_name.capitalize %></span>, Student of <span><%= student.class_section.level.name+" " %><%= student.class_section.section.name%></span> is very good in Studies and teachers always praised your child.
+  <%end%>
+  We request you to please deposit the school fee. 
+  <b>Fine After Due Date: 200</b>
+  <br>
+  Thanking you in advance.
+  <br>
+  </p>
+</div>
+<p style="text-align: center;">Principal <br><span>ESS</span></p>
+<p>
+<span style=" float:right; margin:0 50px;"></span>
+</p>
+<p style="border-bottom: double 4px;"></p>
+<br>
+
+  <div class="space_btw_sts"></div>
+  <% if indx+1 < @students.count %>
+    <div class="page-break"></div>
+  <% end %>
+<% end %>

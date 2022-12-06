@@ -1,0 +1,91 @@
+<%if params[:search_pdf_list]%>
+  <h1 style="text-align: center;">Educational School System</h1>
+  <%if @students.present?%>
+  <h3 style="text-align: center;"> Class :<%= @students.first.class_section.level.name  rescue "" %> Section: <%= @students.first.class_section.section.name  rescue "" %></h3>
+  <%end%>
+  <p style="border-bottom: double 4px; "></p>
+  <table style="width:100%;">
+  <th style="text-align:left;border-bottom: 1px solid #000;">ID</th>
+  <th style="text-align:left;border-bottom: 1px solid #000;">Name</th>
+  <th style="text-align:left;border-bottom: 1px solid #000;">Father</th>
+  <th style="text-align:left;border-bottom: 1px solid #000;">Address</th>
+  <th style="text-align:left;border-bottom: 1px solid #000;">Phone</th>
+  <th style="text-align:left;border-bottom: 1px solid #000;">Fee</th>
+  <th style="text-align:left;border-bottom: 1px solid #000; ">Type</th>
+  <% @students.each_with_index do |student,index| %>
+    <tr>
+      <td style="border-bottom: 1px solid #000;"><%=index+1%></td>
+      <td style="border-bottom: 1px solid #000;"><%=student.name rescue ''%></td>
+      <td style="border-bottom: 1px solid #000;"><%=student.father_name rescue ''%></td>
+      <td style="border-bottom: 1px solid #000;"><%= student.address rescue ''%></td>
+      <td style="border-bottom: 1px solid #000;"><%=student.phone_no rescue ''%> / <%=student.phone_sec rescue ''%></td>
+      <td style="border-bottom: 1px solid #000;"><%=student.monthly_fee rescue 0%></td>
+      <td style="border-bottom: 1px solid #000;"><%=student.student_type rescue '' %></td>
+    </tr>
+  <% end %>
+  </table>
+<%elsif params[:search_pdf]%>
+  <h1 style="text-align: center;">Educational School System</h1>
+  <%if @students.present?%>
+  <h3 style="text-align: center;"> Class :<%= @students.first.class_section.level.name  rescue "" %> Section: <%= @students.first.class_section.section.name  rescue "" %></h3>
+  <%end%>
+  <p style="border-bottom: double 4px; "></p>
+  <table style="width:100%">
+  <th style="font-size:18px;text-align:left;border-top: 1px solid #000;border-bottom: 1px solid #000; width:2%;height:53px;">ID</th>
+  <th style="font-size:18px;text-align:left;border-top: 1px solid #000;border-bottom: 1px solid #000; width:18;%">Name</th>
+  <th style="font-size:18px;text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; width:40%;">Address</th>
+  <th style="font-size:18px;text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; width:20%;">Phone 1</th>
+  <th style="font-size:18px;text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; width:20%;">Phone 2</th>
+  <% @students.each_with_index do |student,index| %>
+    <tr>
+      <td style="font-size:18px;border-bottom: 1px solid #000;height:53px;"><%=index+1%></td>
+      <td style="font-size:18px; border-bottom: 1px solid #000;"><%=student.name rescue "" %></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000;"></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000;"></td>
+    </tr>
+  <% end %>
+  </table>
+<% else %>
+  <h1 style="text-align: center;">Educational School System</h1>
+  <%if @students.present?%>
+  <h2 style="text-align: center;"> Class :<%= @students.first.class_section.level.name  rescue "" %> Section: <%= @students.first.class_section.section.name  rescue "" %>  (<%=Date.today.strftime("%b")%> 2019)</h2>
+  <%end%>
+  <p style="border-bottom: double 4px; "></p>
+  <table style="width:100%">
+  <th style="text-align:left;border-top: 1px solid #000;border-bottom: 1px solid #000;">ID</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Name</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Father</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Class</th>
+  <th style="text-align:left;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000;">Section</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Fees</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Balance</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Total</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Rec Amount</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">Date</th>
+  <th style="text-align:center;border-top: 1px solid #000;border-left: 1px solid #000;border-bottom: 1px solid #000; ">signature</th>
+  <% @students.each_with_index do |student,index| %>
+    <tr>
+      <td style="font-size:18px;border-bottom: 1px solid #000;"><%=student.id%></td>
+      <td style="font-size:20px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%=student.name rescue "" %></td>
+      <td style="font-size:18px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%=student.father_name rescue ''%></td>
+      <td style="font-size:16px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%=student.class_section.level.name rescue ''%></td>
+      <td style="font-size:16px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%=student.class_section.section.name rescue ''%></td>
+      <td style="font-size:16px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%=student.monthly_fee%></td>
+      <td style="font-size:16px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%= (student.balance.present? and student.balance<0) ? 'Fee '+student.balance.abs.to_s : '' %> <%= (student.admission_balance.present? and student.admission_balance<0) ? 'Admission: '+student.admission_balance.abs.to_s : ''  %>  <%= (student.security_balance.present? and student.security_balance<0) ? 'Security: '+student.security_balance.abs.to_s : '' %>  <%= (student.paper_fund_balance.present? and student.paper_fund_balance<0)  ? 'PF '+student.paper_fund_balance.abs.to_s : '' %></td>
+      <%
+      @fee=student.monthly_fee rescue 0
+      @fee_bal=student.balance.present? ? student.balance.abs : 0
+      @a_bal=student.admission_balance.abs rescue 0
+      @s_bal=student.security_balance.abs rescue 0
+      @pf_bal=student.paper_fund_balance.abs rescue 0
+      @total=@fee+@fee_bal+@a_bal+@s_bal+@pf_bal
+      %>
+      <td style="font-size:20px;border-left: 1px solid #000;border-bottom: 1px solid #000;"><%=@total%></td>
+      <td style="border-left: 1px solid #000;border-bottom: 1px solid #000;"></td>
+      <td style="border-left: 1px solid #000;border-bottom: 1px solid #000;"></td>
+      <td style="border-left: 1px solid #000;border-bottom: 1px solid #000;"></td>
+    </tr>
+  <% end %>
+  </table>
+<% end %>

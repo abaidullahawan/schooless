@@ -1,0 +1,78 @@
+<div class="hidden" id="widow_list">
+  <h1>Widows</h1>
+  <%= link_to 'New Widow', new_widow_path, class: "btn btn-primary" %>
+
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <%= search_form_for @q, url: widows_path, class: "admin-controls", method: "get" do |f| %>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.search_field :name_cont,placeholder: "Widow name", title: "Widow name" , class: "form-control" %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.search_field :monthly_aid_cont, placeholder: "Widow Monthly", title: "Widow Monthly" , class: "form-control" %>
+        </div>
+        <div class="col-lg-2 form-group float-left">
+          <input class="form-control btn btn-primary" name="search_submit" type="submit" value="Search"></input>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <table data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th><%= sort_link(@q, :id, 'ID') %></th>
+        <th><%= sort_link(@q, :name, 'Name') %></th>
+        <th><%= sort_link(@q, :monthly_aid, 'Monthly Aid') %> (<%=@total%>)</th>
+        <th>Comment</th>
+        <th class="border_none">(<%=@total_paid%>)</th>
+        <th class="border_none"></th>
+        <th class="border_none">Action</th>
+        <th class="border_none"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @widows.each do |widow| %>
+        <tr>
+          <td><%= widow.id %></td>
+          <td><%= widow.name %></td>
+          <td><%= widow.monthly_aid %></td>
+          <td><%= widow.comment %></td>
+          <% if widow.paid==true %>
+            <td>
+              <div class="" style="background-color:chartreuse;margin: -12px;padding: 11px;">
+                <%= link_to 'Paid to Widow', "javascript:void(0)", title: "Fee already paid for this month", class: "isDisabled" %>
+              </div>
+            </td>
+          <%else%>
+            <td><%= link_to 'Paid to Widow', pay_now_widow_path(widow), data: { confirm: 'Are you sure?' } %></td>
+          <%end%>
+          <td><%= link_to 'Edit', edit_widow_path(widow) %></td>
+          <td><%= link_to 'Show', widow %></td>
+          <td><%= link_to 'Destroy', widow, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-lg-4 col-sm-4">
+    <%= page_entries_info @widows %>
+  </div>
+  <div class="col-lg-8 col-sm-8 pagination-left">
+    <%= paginate @widows %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#widow_list").removeClass('hidden');
+  });
+</script>

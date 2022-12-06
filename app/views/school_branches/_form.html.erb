@@ -1,0 +1,30 @@
+<%= bootstrap_form_for(school_branch) do |f| %>
+  <% if school_branch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(school_branch.errors.count, "error") %> prohibited this school_branch from being saved:</h2>
+
+      <ul>
+      <% school_branch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.text_field :name, required: true %>
+
+  <%= f.text_area :address %>
+
+  <%= f.text_field :code %>
+
+  <%= f.hidden_field :school_id, value: current_user.school.id %>
+
+  <%= f.check_box :active %>
+  <br />
+
+  <div class="actions">
+    <%= link_to 'Back', school_branches_path, class: "btn btn-info" %>
+    <%= f.submit class: "btn btn-primary", style: "float: right" %>
+  </div>
+
+<% end %>

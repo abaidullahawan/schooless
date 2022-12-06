@@ -1,0 +1,29 @@
+<h1>Class Sections</h1>
+
+<table class="table table-bordered table-hover table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Level</th>
+      <th>Section</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_sections.each do |class_section| %>
+      <tr>
+        <td><%= class_section.id %></td>
+        <td><%= class_section.level %></td>
+        <td><%= class_section.section %></td>
+        <td><%= link_to 'Show', class_section %></td>
+        <td><%= link_to 'Edit', edit_class_section_path(class_section) %></td>
+        <td><%= link_to 'Destroy', class_section, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class Section', new_class_section_path %>

@@ -1,0 +1,61 @@
+<%= bootstrap_form_for(salary) do |f| %>
+  <% if salary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(salary.errors.count, "error") %> prohibited this advance from being saved:</h2>
+
+      <ul>
+      <% salary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if salary.persisted? %>
+    <div class="form-group has-warning">
+      <label for="student_section_id">Paid to</label>
+      <%= text_field_tag "salary_paid_to", salary.paid_to, class: "form-control", readonly: true %>
+    </div>
+
+    <div class="form-group has-warning">
+      <label for="student_section_id">Name</label>
+      <%= text_field_tag "salary_paid_to_name", salary.Teacher? ? salary.teacher.name : salary.staff.name, class: "form-control", readonly: true %>
+    </div>
+    <%=  %>
+  <% else %>
+    <%= f.select :paid_to, Salary.paid_tos.keys, {prompt: "Select Pay to", label: "Pay to"}, { onchange: 'toggle_teacher_staff(this.value); return false;', required: true } %>
+
+    <div id="teacher_options_list" class="hidden">
+      <%= f.select :teacher_id, options_from_collection_for_select(@teachers_list, 'id', 'name'), {prompt: "Select the Teacher"}, { onchange: 'set_teacher_advance_info(this.value); return false;', required: true } %>
+    </div>
+
+    <div id="staff_options_list" class="hidden">
+      <%= f.select :staff_id, options_from_collection_for_select(@staffs_list, 'id', 'name'), {prompt: "Select the Staff"}, { onchange: 'set_staff_advance_info(this.value); return false;', required: true } %>
+    </div>
+  <% end %>
+
+  <% if f.object.persisted? %>
+    <div class="field form-group">
+      <label for="student_fee_student_id">Already Advance due</label>
+      <% advance_amount = f.object.Teacher? ? f.object.teacher.advance_amount : f.object.staff.advance_amount 
+        already_advance_amount = advance_amount.to_i - f.object.advance.to_i
+      %>
+      <%= text_field_tag :advance_amount, already_advance_amount, class: "form-control", disabled: true %>
+    </div>
+  <% else %>
+    <div class="field form-group hidden" id="advance_amount_taken_div">
+      <label for="">Already Advance due</label>
+      <%= text_field_tag :advance_amount_taken, '', class: "form-control", disabled: true %>
+    </div>
+  <% end %>
+  <%= f.number_field :advance, label: "New Advance amount", required: true%>
+
+  <%= f.hidden_field :school_branch_id, value: @school_branch.id %>
+  <%= f.hidden_field :payment_type %>
+
+
+  <div class="actions">
+    <%= link_to 'Salaries', salaries_path, class: "btn btn-info" %>
+    <%= f.submit "Save Advance", class: "btn btn-primary", style: "float: right" %>
+  </div>
+<% end %>

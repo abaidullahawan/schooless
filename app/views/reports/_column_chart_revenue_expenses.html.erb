@@ -1,0 +1,26 @@
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['bar']});
+  google.charts.setOnLoadCallback(drawChart);
+
+  function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+      ['Last 12 Months', 'Revenue', 'Expense'],
+      <% @revenue.each_with_index do |rev, indx| %>
+        ['<%=rev[0]%>', <%=rev[1]%>, <%=@expense[rev[0]]%>],
+      <% end %>
+    ]);
+
+    var options = {
+      chart: {
+        title: 'School Performance',
+        subtitle: 'Revenue and Expenses of last 12 months',
+      }
+    };
+
+    var chart = new google.charts.Bar(document.getElementById('column_chart_revenue_expenses'));
+
+    chart.draw(data, google.charts.Bar.convertOptions(options));
+  }
+</script>
+
+<div id="column_chart_revenue_expenses" style="width: 1000px; height: 600px;"></div>

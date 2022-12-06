@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  date_of_birth: 2019-08-21
+  phone_no: MyString
+  monthly_fee: 1
+  address: MyText
+  class_section: one
+
+two:
+  name: MyString
+  date_of_birth: 2019-08-21
+  phone_no: MyString
+  monthly_fee: 1
+  address: MyText
+  class_section: two

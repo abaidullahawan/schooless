@@ -1,0 +1,7 @@
+<% @students.each_with_index do |student, indx| %>
+  <%= render partial: "print_student", locals: {student: student, fee_due_month: @fee_due_month} %>
+  <div class="space_btw_sts"></div>
+  <% if indx+1 < @students.count %>
+    <div class="page-break"></div>
+  <% end %>
+<% end %>

@@ -1,0 +1,95 @@
+<div class="hidden" id="students_fee_list">
+  <h1>Student Fees</h1>
+  <%= link_to 'New Student Fee', new_student_fee_path, class: "btn btn-primary" %>
+
+  <div class="clearfix"></div>
+  <div class="row">
+    <div class="col-lg-12 col-sm-12">
+      <%= search_form_for @q, url: student_fees_path, class: "admin-controls", method: "get" do |f| %>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.search_field :student_name_cont, value: @name, placeholder: "Name", title: "Name" , class: "form-control" %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.search_field :student_father_name_cont, value: @father, placeholder: "Father Name", title: "Father Name", class: "form-control" %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.select :student_school_branch_id_eq, options_from_collection_for_select(@school_branches, 'id', 'name', @school_branch_id), { include_blank: "Select Branch"}, class: "form-control " %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.select :student_class_section_level_id_eq, options_from_collection_for_select(Level.all, 'id', 'name', @school_level_id), { include_blank: "Select Level"}, class: "form-control " %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.select :student_class_section_section_id_eq, options_from_collection_for_select(Section.all, 'id', 'name', @school_section_id), { include_blank: "Select Section"}, class: "form-control " %>
+        </div>
+        <div class="col-lg-3 form-group float-left">
+          <%= f.select :fee_type_eq, ['Fee','Admission Fee','Security', 'paper fund','other charges'], {prompt: "Select Fee Type"}, { class: "form-control select_chosen"} %>
+        </div>
+        <div class="row col-lg-2 form-group float-left">
+          <div class="col-lg-6" style="padding-right: 0;">
+            <%= select_month(@paid_to_month.to_i, {prompt: "Month", use_short_month: true, prefix: 'student_fees'},{ field_name: 'month', id: 'start-month', class: 'form-control input-sm select_chosen'}) %>
+          </div>
+          <div class="col-lg-6" style="padding-left: 0;">
+            <%= select_year(@paid_to_year.to_i, {prompt: "Year", start_year: Date.today.year + 1, end_year: Date.today.year - 7, prefix: 'student_fees'},{ field_name: 'year', id: 'start-year', class: 'form-control input-sm select_chosen'}) %>
+          </div>
+        </div>
+        <div class="col-lg-1 form-group float-left">
+          <input class="form-control btn btn-primary" name="search_submit" type="submit" value="Search"></input>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <table data-toggle="table" data-search="true">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Father</th>
+        <th>Branch</th>
+        <th>Paid date</th>
+        <th>Paid fee</th>
+        <th>Balance</th>
+        <th>Fee type</th>
+        <th class="border_none"></th>
+        <th class="border_none">Action</th>
+        <th class="border_none"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @student_fees.each do |student_fee| %>
+        <tr>
+          <td><%= student_fee.id %></td>
+          <td><%= student_fee.student.name %></td>
+          <td><%= student_fee.student.father_name %></td>
+          <td><%= student_fee.student.school_branch.name %></td>
+          <td><%= student_fee.paid_date %></td>
+          <td><%= student_fee.paid_fee %></td>
+          <td><%= student_fee.balance %></td>
+          <td><%= student_fee.fee_type %></td>
+          <td><%= link_to 'Edit', edit_student_fee_path(student_fee) %></td>
+          <td><%= link_to 'Show', student_fee %></td>
+          <td><%= link_to 'Destroy', student_fee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-lg-4 col-sm-4">
+    <%= page_entries_info @student_fees %>
+  </div>
+  <div class="col-lg-8 col-sm-8 pagination-left">
+    <%= paginate @student_fees %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#students_fee_list").removeClass('hidden');
+  });
+</script>

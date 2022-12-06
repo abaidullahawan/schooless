@@ -1,0 +1,133 @@
+<%# #student admiintion,secutry,and paperfund handling with parseInt %>
+<%# #chosen select for all dropdown %>
+<%# #Graph of Revenue %>
+<%# #Attendence %>
+<%# Done #student Type [noraml,orphon,dezerving] print list %>
+
+
+<%= bootstrap_form_for(student) do |f| %>
+  <% if student.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(student.errors.count, "error") %> prohibited this student from being saved:</h2>
+      <ul>
+      <% student.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <hgroup>
+    <span>Student Detail</span>
+  </hgroup>
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :name, required: true %>
+  </div>
+  <div class="col-lg-6" style="float:right">
+    <%= f.text_field :father_name, required: true %>
+  </div>
+
+  <div class="col-lg-6" style="float:left">
+    <%= f.text_field :phone_no %>
+  </div>
+  <div class="col-lg-6" style="float:right">
+    <%= f.text_field :phone_sec %>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <% @branch_name = f.object.school_branch_id if f.object.persisted? %>
+    <%= f.select :school_branch_id, options_from_collection_for_select(@school_branches, 'id', 'name', @branch_name), {prompt: "Select the Branch"}, {class: "", required: true } %>
+  </div>
+  <div class="col-lg-6" style="float:right">
+    <div class="form-group has-warning">
+      <label for="student_section_id">Select Class</label>
+      <% @level = f.object.class_section.level_id if f.object.persisted? %>
+      <%= select_tag "student[class_id]", options_from_collection_for_select(Level.all, 'id', 'name',@level),{prompt: "Select the Class", class: "form-control", required: true} %>
+    </div>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <div class="form-group has-warning">
+      <label for="student_section_id">Select Section</label>
+      <% @section = f.object.class_section.section_id if f.object.persisted? %>
+      <%= select_tag "student[section_id]", options_from_collection_for_select(Section.all, 'id', 'name',@section),{prompt: "Select the Section", class: "form-control ", required: true} %>
+    </div>
+  </div>
+  <div class="col-lg-6" style="float:right">
+    <%= f.date_select :date_of_birth, required: true, class: "datepicker" %>
+  </div>
+  <div class="col-lg-6" style="float:left">
+    <%= f.collection_radio_buttons :gender, Student.genders.map {|k,v| [k,k]}, :first, :last do |b| %>
+      <%= b.radio_button %>
+      <%= b.label %>
+    <% end %>
+  </div>
+  <div class="col-lg-6" style="float:right">
+    <%= f.text_area :address %>
+  </div>
+  <hgroup>
+    <span>Student Payment Detail</span>
+  </hgroup>
+  <div class="col-lg-2" style="float:left">
+    <%= f.number_field :monthly_fee, required: true %>
+  </div>
+  <div class="col-lg-2" style="float:left">
+    <%= f.number_field :admission, required: true %>
+  </div>
+  <div class="col-lg-2" style="float:left">
+    <%= f.number_field :security, required: true %>
+  </div>
+  <div class="col-lg-2" style="float:left">
+    <%= f.number_field :paper_fund, required: true %>
+  </div>
+  <div class="col-lg-2" style="float:left">
+    <%= f.number_field :balance %>
+  </div>
+  <div class="col-lg-2" style="float:left">
+    <%= f.hidden_field :admission_balance ,class:"admission_balance"%>
+    <label for="admission_balance">Admission Balance</label>
+    <%= number_field_tag :admission_balance ,f.object.admission_balance,class: "form-control student_admission_balance" %>
+  </div>
+  <div class="col-lg-3" style="float:left">
+    <%= f.hidden_field :security_balance ,class:"security_balance"%>
+    <label for="security_balance">Security Balance</label>
+    <%= number_field_tag :security_balance ,f.object.security_balance,class: "form-control student_security_balance" %>
+  </div>
+  <div class="col-lg-2" style="float:left">
+    <%= f.hidden_field :paper_fund_balance ,class:"paper_fund_balance"%>
+    <label for="paper_fund_balance">Paper Fund Balance</label>
+    <%= number_field_tag :paper_fund_balance ,f.object.paper_fund_balance,class: "form-control student_paper_fund_balance" %>
+  </div>
+  <div class="col-lg-3" style="float:left">
+    <%= f.select :student_type, Student.student_types.map { |key, value| [key.humanize, key] },{class: "form-control", required: true, onchange: 'toggle_fee_fields(this.value); return false;' } %>
+  </div>
+<div class="col-lg-12">
+  <div class="col-lg-4" style="float:left">
+    <h1>Admission Fee</h1>
+    <%= f.fields_for :student_fees do |af| %>
+    <%= render 'admission_fee', f: af %>
+    <% end %>
+  </div>
+  <div class="col-lg-4" style="float:left">
+    <h1>Security</h1>
+    <%= f.fields_for :student_fees do |sf| %>
+    <%= render 'security_fee', f: sf %>
+    <% end %>
+  </div>
+  <div class="col-lg-4" style="float:right">
+    <h1>Paper Fund</h1>
+    <%= f.fields_for :student_fees do |pf| %>
+    <%= render 'paper_fund_fee', f: pf %>
+    <% end %>
+  </div>
+</div>
+<br>
+<p>.</p>
+<p>.</p>
+<div class="col-lg-12" style="display: flow-root">
+
+
+    <div class="actions">
+      <%= link_to 'Students', students_path, class: "btn btn-info" %>
+      <%= f.submit class: "btn btn-primary", style: "float: right" %>
+    </div>
+  <%= f.hidden_field :class_section_id %>
+</div>
+<% end %>

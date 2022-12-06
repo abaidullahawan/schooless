@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-lg-12 col-sm-12">
+    <div id = "expenses_detail">
+      <table data-toggle="table">
+        <thead>
+          <tr>
+            <th>Month</th>
+            <th>Salary</th>
+            <th>Rent</th>
+            <th>Comity</th>
+            <th>Aids program</th>
+            <th>Utility bills</th>
+            <th>Mentance</th>
+            <th>Stationery</th>
+            <th>Furniture</th>
+            <th>Refreshment</th>
+            <th>Functions</th>
+            <th>Other's</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+            <%@expense_by_type.each do |ex|%>
+              <tr>
+                <%total=0%>
+                <td><%=ex.first%></td>
+                <td><%=ex.last.first%>       <%total=total+(ex.last.first)%></td>
+                <td><%=ex.last.last['Building rent']%>       <%total=total+(ex.last.last['Building rent'].present? ? ex.last.last['Building rent'] : 0)%></td>
+                <td><%=ex.last.last['Monthly comity']%>      <%total=total+(ex.last.last['Monthly comity'].present? ? ex.last.last['Monthly comity'] : 0)%></td>
+                <td><%=ex.last.last['Widows Aids program']%> <%total=total+(ex.last.last['Widows Aids program'].present? ? ex.last.last['Widows Aids program'] : 0)%></td>
+                <td><%=ex.last.last['Utility bills']%>       <%total=total+(ex.last.last['Utility bills'].present? ? ex.last.last['Utility bills'] : 0)%></td>
+                <td><%=ex.last.last['Mentance']%>            <%total=total+(ex.last.last['Mentance'].present? ? ex.last.last['Mentance'] : 0)%></td>
+                <td><%=ex.last.last['Stationery']%>          <%total=total+(ex.last.last['Stationery'].present? ? ex.last.last['Stationery'] : 0)%></td>
+                <td><%=ex.last.last['Furniture']%>           <%total=total+(ex.last.last['Furniture'].present? ? ex.last.last['Furniture'] : 0)%></td>
+                <td><%=ex.last.last['Guest Refreshment']%>   <%total=total+(ex.last.last['Guest Refreshment'].present? ? ex.last.last['Guest Refreshment'] : 0)%></td>
+                <td><%=ex.last.last['Yearly Functions']%>    <%total=total+(ex.last.last['Yearly Functions'].present? ? ex.last.last['Yearly Functions'] : 0)%></td>
+                <td><%=ex.last.last['Other']%>               <%total=total+(ex.last.last['Other'].present? ? ex.last.last['Other'] :0)%></td>
+                <td><%=total%></td>
+              </tr>
+            <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function() {
+    if ($(".bootstrap-table").length == 0){
+      $("table").bootstrapTable();
+    }
+    $("#expenses_list").removeClass('hidden');
+  });
+</script>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  paid_date: 2019-08-21
+  paid_fee: 1
+  balance: 1
+  fee_type: MyString
+  student: one
+
+two:
+  paid_date: 2019-08-21
+  paid_fee: 1
+  balance: 1
+  fee_type: MyString
+  student: two

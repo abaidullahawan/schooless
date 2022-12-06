@@ -1,0 +1,17 @@
+<% if f.object.persisted? && f.object.fee_type=="Paper Fund"%>
+<table  data-search="true" class="table table-striped">
+  <thead>
+    <tr>
+      <td><%=f.object.paid_date%></td>
+      <td><%=f.object.paid_fee%></td>
+      <td><%=f.object.balance%></td>
+    </tr>
+  </thead>
+</table>
+<% elsif f.object.persisted? == false %>
+<%= f.hidden_field :student_id  %>
+<%= f.hidden_field :fee_type, :value=>'Paper Fund' %>
+<%= f.number_field :paid_fee, class: "form-control paper_fund_paid_fee",onkeyup: "set_paper_new_balance(); return false;",onchange:  "set_paper_new_balance(); return false;" %>
+<%= f.text_field :balance, class: "form-control student_fee_paper_fund_balance", readonly: true %>
+<%= f.date_select :paid_date, class: "form-control" %>
+<% end %>

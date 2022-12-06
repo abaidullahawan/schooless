@@ -1,0 +1,65 @@
+<div class="row">
+  <div class="col-sm-12"><h1>Teacher Detail</h1></div>
+</div>
+<br />
+
+<div class="row">
+  <div class="col-sm-4"><strong>Name</strong></div>
+  <div class="col-sm-8"><%= @staff.name %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Father</strong></div>
+  <div class="col-sm-8"><%= @staff.father %></div>
+</div>
+
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>School Branch</strong></div>
+  <div class="col-sm-8"><%= @staff.school_branch.name %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Education</strong></div>
+  <div class="col-sm-8"><%= @staff.education %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Phone</strong></div>
+  <div class="col-sm-8"><%= @staff.phone %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Address</strong></div>
+  <div class="col-sm-8"><%= @staff.address %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>cnic</strong></div>
+  <div class="col-sm-8"><%= @staff.cnic %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Date Of Joining</strong></div>
+  <div class="col-sm-8"><%= @staff.date_of_joining %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Date Of Leving</strong></div>
+  <div class="col-sm-8"><%= @staff.date_of_leaving %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>Increment</strong></div>
+  <div class="col-sm-8"><%= @staff.yearly_increment %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><strong>monthly_salary</strong></div>
+  <div class="col-sm-8"><%= @staff.monthly_salary %></div>
+</div>
+<br />
+<div class="row">
+  <div class="col-sm-4"><%= link_to 'Staff', staffs_path, class: "btn btn-info" %></div>
+  <div class="col-sm-2"><%= link_to 'Edit', edit_staff_path(@staff), class: "btn btn-primary" %></div>
+</div>
