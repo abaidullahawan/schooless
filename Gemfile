@@ -32,7 +32,7 @@ gem 'ransack'
 gem "kaminari"
 # PDF
 gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary'
+# gem 'wkhtmltopdf-binary'
 #paper trail
 gem 'paper_trail'
 
@@ -51,6 +51,10 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'pry'
+  gem 'capistrano', '~> 3.11'
+  gem 'capistrano-rails', '~> 1.4'
+  gem 'capistrano-passenger', '~> 0.2.0'
+  gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 end
 group :production do
   gem "pg"
