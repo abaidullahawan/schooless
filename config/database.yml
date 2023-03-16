@@ -4,11 +4,39 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'mysql2'
 #
+# default: &default
+#   adapter: mysql2
+#   encoding: utf8
+#   username: root
+#   password: root
+#   pool: 5
+#   timeout: 5000
+
+# development:
+#   <<: *default
+#   database: schooless_dev
+
+# # Warning: The database fined as "test" will be erased and
+# # re-generated from your development database when you run "rake".
+# # Do not set this db to the same as development or production.
+# test:
+#   <<: *default
+#   database: schooless_test
+
+# production:
+#   adapter: postgresql
+#   encoding: utf8
+#   host: ec2-23-21-186-85.compute-1.amazonaws.com
+#   username: ahfafkjtqnaabq
+#   password: 06816442523471fCNJOMf433$daeab2aca81ee49599b896f3c6a022f94a0850dd74c
+#   port: 5432
+#   database: da4sugab6oghbu
+
 default: &default
   adapter: mysql2
   encoding: utf8
   username: root
-  password: password
+  password: $omeFancyPassword123
   pool: 5
   timeout: 5000
 
@@ -24,10 +52,9 @@ test:
   database: schooless_test
 
 production:
-  adapter: postgresql
-  encoding: utf8
-  host: ec2-23-21-186-85.compute-1.amazonaws.com
-  username: ahfafkjtqnaabq
-  password: 06816442523471f2bf433daeab2aca81ee49599b896f3c6a022f94a0850dd74c
-  port: 5432
-  database: da4sugab6oghbu
+  # url: mysql2://root:devbox@123@localhost/myapp
+  adapter: mysql2
+  database: myapp
+  host: localhost
+  username: deploy
+  password: $omeFancyPassword123
