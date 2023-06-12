@@ -5,7 +5,7 @@ class UnpaidStudentsController < ApplicationController
     response = HTTParty.get('http://sms4connect.com/api/sendsms.php/balance/status?id=essystem&pass=system65')
     puts response.body, response.code, response.message, response.headers.inspect
     hash = Hash.from_xml(response)
-    @api_balance = hash.first.last.first.last.pluck("response").map(&:to_i).sum
+    # @api_balance = hash.first.last.first.last.pluck("response").map(&:to_i).sum
     if params[:unpaid_student].present?
       @paid_to_month = params[:unpaid_student][:month]
       @paid_to_year = params[:unpaid_student][:year]
