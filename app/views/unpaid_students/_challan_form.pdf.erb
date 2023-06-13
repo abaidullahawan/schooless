@@ -1,0 +1,98 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<% @date = Date.today  %>
+
+<% st_balance = student.balance.present? ? student.balance : 0 %>
+<% st_admission = student.admission_balance.present? ? student.admission_balance : 0 %>
+<% st_security = student.security_balance.present? ? student.security_balance : 0 %>
+<% st_paper = student.paper_fund_balance.present? ? student.paper_fund_balance : 0 %>
+
+<div class="p-4">
+  <div class='row'>
+    <% ['Student Copy', 'School Copy', 'Accountant Copy'].each do |slip_copy| %>
+      <div class='col-4'>
+        <div class='border'>
+          <p class='text-center h5 font-weight-bold'>Fee Bill</p>
+          <p class='text-center h5 text-white bg-secondary p-2 font-weight-bold'><%= slip_copy %></p>
+          <p class='text-center'>
+            <span class='h4 font-weight-bold'><%= "#{student.school_branch.school.name} " %></span><span class='h5'><%= "- (#{student.school_branch.name})" %></span>
+          </p>
+          <div class="d-flex border-top w-100">
+            <span class='border-right text-center w-50'>Invoice Date</span>
+            <span class='text-center w-50'><%= Date.today.strftime("%d %B %Y") %></span>
+          </div>
+          <div class="d-flex border-bottom border-top w-100">
+            <span class='border-right text-center w-50'>Due Date</span>
+            <span class='text-center w-50'><%= "15 #{Date.today.strftime("%B %Y")}" %></span>
+          </div>
+          <div class="d-flex px-4 py-1 border-bottom">
+            <span class='font-weight-bold'>Student Name</span>
+            <span class='ml-auto font-weight-bold'><%= student.name.capitalize %></span>
+          </div>
+          <div class="d-flex px-4 py-1 border-bottom">
+            <span class='font-weight-bold'>Father's Name</span>
+            <span class='ml-auto font-weight-bold'><%= student.father_name.capitalize %></span>
+          </div>
+          <div class="d-flex px-4 py-1 border-bottom">
+            <span class='font-weight-bold'>Class</span>
+            <span class='ml-auto font-weight-bold'><%= "#{student.level.name}-#{student.section.name}" %></span>
+          </div>
+          <div class="d-flex px-4 py-1 border-bottom bg-secondary text-white">
+            <span class='font-weight-bold'>Description</span>
+            <span class='ml-auto font-weight-bold'>Amount Rs.</span>
+          </div>
+
+          <% if (st_balance < 0) or (st_admission < 0) or (st_security < 0) or (st_paper < 0 )%>
+            <% if st_balance < 0%>
+              <div class="d-flex px-4 py-1 border-bottom">
+                <span class=''>Previous Fee:</span>
+                <span class='ml-auto'><%= "#{st_balance.abs} + 200" %></span>
+              </div>
+            <%end%>
+            <% if st_admission < 0%>
+              <div class="d-flex px-4 py-1 border-bottom">
+                <span class=''>Admission Balance: </span>
+                <span class='ml-auto'><%=st_admission.abs %></span>
+              </div>
+            <%end%>
+            <% if st_security < 0%>
+              <div class="d-flex px-4 py-1 border-bottom">
+                <span class=''>Security Balance: </span>
+                <span class='ml-auto'><%=st_security.abs %></span>
+              </div>
+            <%end%>
+            <% if st_paper < 0 %>
+              <div class="d-flex px-4 py-1 border-bottom">
+                <span class=''>Paper Fund Balance: </span>
+                <span class='ml-auto'><%=st_paper.abs %></span>
+              </div>
+            <%end%>
+            <div class="d-flex px-4 py-1 border-bottom">
+              <span class=''>Fee of <%= @date.strftime("%B")%>: </span>
+              <span class='ml-auto'><%=student.monthly_fee.abs %></span>
+            </div>
+            <div class="d-flex px-4 py-1 border-bottom">
+              <span class='h5 pt-2'>Total: </span>
+              <span class='ml-auto h5 pt-2'><%=(st_balance.abs+st_admission.abs+st_security.abs+st_paper.abs+student.monthly_fee)%></span>
+            </div>
+          <% end %>
+
+          <div class="d-flex px-4 py-1 border-bottom">
+            <span class=''>Fine After Due Date:</span>
+            <span class='ml-auto'>200</span>
+          </div>
+          <% if (st_balance < 0) or (st_admission < 0) or (st_security < 0) or (st_paper < 0 )%>
+            <div class="d-flex px-4 py-1">
+              <span class='font-weight-bold h5 pt-2'>Total After Due Date: </span>
+              <%if st_balance<0%>
+                <span class='font-weight-bold ml-auto h5 pt-2'><%=(st_balance.abs+st_admission.abs+st_security.abs+st_paper.abs+student.monthly_fee+400)%></span>
+              <%else%>
+                <span class='font-weight-bold ml-auto h5 pt-2'><%=(st_balance.abs+st_admission.abs+st_security.abs+st_paper.abs+student.monthly_fee+200)%></span>
+              <%end%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -125,26 +125,13 @@ class UnpaidStudentsController < ApplicationController
       sms_forward=true
     end
   end
-  def print
-    @student = Student.find_by(id: params[:id])
-    unpaid_students_search_date = session[:unpaid_students_search_date]
-    pay_date = unpaid_students_search_date.to_date
-    @fee_due_month = "#{pay_date.strftime('%d %B %Y')}"
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "Student-List",
-        layout: 'pdf.html',
-        page_size: 'A8',
-        margin_top: '0',
-        margin_right: '0',
-        margin_bottom: '0',
-        margin_left: '0',
-        encoding: "UTF-8",
-        show_as_html: true
-      end
-    end
+  def print
+    print_fee('A8', true)
+  end
+
+  def print_fee_challan
+    print_fee('A4', true)
   end
 
   def deserving_student_list
@@ -203,21 +190,11 @@ class UnpaidStudentsController < ApplicationController
   end
 
   def print_all
-    unpaid_students_ids = session[:unpaid_students_ids]
-    unpaid_students_search_date = session[:unpaid_students_search_date]
-    @students = Student.where(id: unpaid_students_ids)
-    pay_date = unpaid_students_search_date.to_date
-    @fee_due_month = "#{pay_date.strftime('%d %B %Y')}"
+    print_all_fees('A8', true)
+  end
 
-    respond_to do |format|
-      format.html
-      format.pdf do
-        render pdf: "Un-paid-students",
-        layout: 'pdf.html',
-        page_size: 'A8',
-        show_as_html: true
-      end
-    end
+  def print_all_fee_challan
+    print_all_fees('A4', true)
   end
 
   def print_for_all
@@ -259,4 +236,45 @@ class UnpaidStudentsController < ApplicationController
     end
   end
 
+  private
+
+  def print_fee(page_size, show_as_html)
+    @student = Student.find_by(id: params[:id])
+    unpaid_students_search_date = session[:unpaid_students_search_date]
+    pay_date = unpaid_students_search_date.to_date
+    @fee_due_month = pay_date.strftime('%d %B %Y').to_s
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Student-List",
+        layout: 'pdf.html',
+        page_size: page_size,
+        margin_top: '0',
+        margin_right: '0',
+        margin_bottom: '0',
+        margin_left: '0',
+        encoding: "UTF-8",
+        show_as_html: show_as_html
+      end
+    end
+  end
+
+  def print_all_fees(page_size, show_as_html)
+    unpaid_students_ids = session[:unpaid_students_ids]
+    unpaid_students_search_date = session[:unpaid_students_search_date]
+    @students = Student.where(id: unpaid_students_ids)
+    pay_date = unpaid_students_search_date.to_date
+    @fee_due_month = "#{pay_date.strftime('%d %B %Y')}"
+
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Un-paid-students",
+        layout: 'pdf.html',
+        page_size: page_size,
+        show_as_html: show_as_html
+      end
+    end
+  end
 end

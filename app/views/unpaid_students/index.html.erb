@@ -41,14 +41,17 @@
         </div>
 
       <% end %>
-      <div class="col-lg-4 form-group float-left">
+      <div class="col-lg-3 form-group float-left">
         <%= link_to 'Print All Below showing', print_all_unpaid_students_path(format: :pdf), class: "col-lg-12 btn btn-primary float-right", target: "_blank" %>
       </div>
-      <div class="col-lg-4 form-group float-left">
+      <div class="col-lg-3 form-group float-left">
         <%= link_to 'Print All Below showing without Balance', print_all_without_balance_unpaid_students_path(format: :pdf), class: "col-lg-12 btn btn-primary float-right", target: "_blank" %>
       </div>
-      <div class="col-lg-4 form-group float-left">
+      <div class="col-lg-3 form-group float-left">
         <%= link_to 'Print For All', print_for_all_unpaid_students_path(format: :pdf), class: "col-lg-12 btn btn-primary float-right", target: "_blank" %>
+      </div>
+      <div class="col-lg-3 form-group float-left">
+        <%= link_to 'Print All Challan Fees', print_all_fee_challan_unpaid_students_path(format: :pdf), class: "col-lg-12 btn btn-primary float-right", target: "_blank" %>
       </div>
     </div>
   </div>
@@ -79,6 +82,7 @@
           <td><%= student.balance %> / <%= student.admission_balance %> / <%= student.security_balance %> / <%= student.paper_fund_balance %></td>
           <td><%= link_to 'Charge Fee', pay_now_unpaid_student_path(student.id, "#{@paid_to_year.to_i}-#{@paid_to_month.to_i}-#{Date.today.day}"), data: { confirm: 'Are you sure?' }  %></td>
           <td><%= link_to 'Print', print_unpaid_student_path(student.id, format: :pdf), target: "_blank" %></td>
+          <td><%= link_to 'Print Challan', print_fee_challan_unpaid_student_path(student.id, format: :pdf), target: "_blank" %></td>
           <td><%= link_to 'SMS', "", class: "btn btn-primary float-right", onclick: "sms_to_student(#{student.id}); return false;" %></td>
         </tr>
       <% end %>

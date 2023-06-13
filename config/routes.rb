@@ -61,6 +61,8 @@ Rails.application.routes.draw do
       get "pay_now/:pay_date" => "unpaid_students#pay_now", as: :pay_now
       get "print"
       get "sms_to_student"
+
+      get 'print_fee_challan', as: :print_fee_challan
     end
     collection do
       get "unpaid_funds_students" , as: :unpaid_funds_students
@@ -71,6 +73,8 @@ Rails.application.routes.draw do
       get "deserving_student_list", as: :deserving_student_list
       get "student_list", as: :student_list
       get "sms_to_all_student", as: :sms_to_all
+
+      get 'print_all_fee_challan', as: :print_all_fee_challan
     end
   end
 
