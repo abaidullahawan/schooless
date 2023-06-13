@@ -1,0 +1,7 @@
+<% @students.each_with_index do |student, indx| %>
+  <%= render partial: "challan_form", locals: {student: student, fee_due_month: @fee_due_month} %>
+  <p style="border-bottom: double 4px; "></p>
+  <% if indx+1 < @students.count %>
+    <div class="page-break"></div>
+  <% end %>
+<% end %>

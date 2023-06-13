@@ -2,8 +2,8 @@
 lock "~> 3.17.2"
 
 set :application, "schooless"
-set :repo_url, "git@bitbucket.org:mhussain654gmail/schooless.git"
-# set :branch, 'main'
+set :repo_url, "git@github.com:abaidullahawan/schooless.git"
+set :branch, 'main'
 set :user, "deploy"
 
 # Deploy to the user's home directory
