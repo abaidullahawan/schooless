@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field form-group">
+    <%= f.file_field :logo, class: "form-control"%>
+  </div>
+
+  <div class="field form-group">
     <%= f.text_field :name, class: "form-control" %>
   </div>
 
@@ -19,12 +23,7 @@
     <%= f.text_field :code, class: "form-control" %>
   </div>
 
-  <div class="field form-group">
-    <%= f.text_area :address, class: "form-control"%>
-  </div>
-
   <div class="actions">
-    <%= link_to 'School', schools_path, class: "btn btn-info" %>
     <%= f.submit class: "btn btn-primary", style: "float: right" %>
   </div>
 <% end %>

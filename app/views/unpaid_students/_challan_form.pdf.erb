@@ -14,9 +14,16 @@
         <div class='border'>
           <p class='text-center h5 font-weight-bold'>Fee Bill</p>
           <p class='text-center h5 text-white bg-secondary p-2 font-weight-bold'><%= slip_copy %></p>
-          <p class='text-center'>
-            <span class='h4 font-weight-bold'><%= "#{student.school_branch.school.name} " %></span><span class='h5'><%= "- (#{student.school_branch.name})" %></span>
-          </p>
+          <% school = student.school_branch.school%>
+          <div class='d-flex w-100'>
+            <div class='w-25'>
+              <img src='<%= school.logo.attached? ? url_for(school.logo) : '' %>' style='height: 175px; width: 175px;'>
+            </div>
+            <div class='align-self-center w-75'>
+              <p class='h4 font-weight-bold text-center'><%= "#{school.name} " %></p>
+              <p class='h5 text-center'><%= "(#{student.school_branch.name})" %></p>
+            </div>
+          </div>
           <div class="d-flex border-top w-100">
             <span class='border-right text-center w-50'>Invoice Date</span>
             <span class='text-center w-50'><%= Date.today.strftime("%d %B %Y") %></span>

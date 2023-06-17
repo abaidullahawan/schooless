@@ -36,6 +36,8 @@ gem 'wkhtmltopdf-binary'
 #paper trail
 gem 'paper_trail'
 
+gem "image_processing", ">= 1.2"
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :development, :test do

@@ -52,7 +52,7 @@ Rails.application.routes.draw do
   end
   resources :class_sections
   resources :sections
-  resources :schools
+  resources :schools, only: [:show, :edit, :update]
   resources :levels
   resources :home, only: [:index]
   resources :reports, only: [:index, :chart]
