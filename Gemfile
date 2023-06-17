@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.4'
+gem 'rails', '5.2'
 # Use mysql2 as the database for Active Record
 gem 'mysql2', '0.4.10'
 # Use Puma as the app server

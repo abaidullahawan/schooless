@@ -304,7 +304,7 @@ DEPENDENCIES
   pg
   pry
   puma (~> 3.0)
-  rails (~> 5.2)
+  rails (= 5.2)
   rails_admin
   ransack
   sass-rails (~> 5.0)
