@@ -1,5 +1,5 @@
 class ClassSectionsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_class_section, only: [:show, :edit, :update, :destroy]
 
   # GET /class_sections

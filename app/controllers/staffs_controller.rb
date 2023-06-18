@@ -1,5 +1,5 @@
 class StaffsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_staff, only: [:show, :edit, :update, :destroy, :salary_info]
 
   # GET /staffs
@@ -16,7 +16,6 @@ class StaffsController < ApplicationController
     end
     @staffs = @q.result(distinct: true).page(params[:page])
 
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
     @staffs_pays = Salary.where("extract(month from created_at) = ? AND extract(year from created_at) = ? AND staff_id IN (?)", Date.today.month, Date.today.year,Staff.pluck(:id)).where(:paid_to=>'Staff')
     if params[:pdf_submit]
       request.format = 'pdf'
@@ -42,12 +41,10 @@ class StaffsController < ApplicationController
   # GET /staffs/new
   def new
     @staff = Staff.new
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /staffs/1/edit
   def edit
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # POST /staffs
@@ -60,7 +57,6 @@ class StaffsController < ApplicationController
         format.html { redirect_to @staff, notice: 'Staff was successfully created.' }
         format.json { render :show, status: :created, location: @staff }
       else
-        @school_branches = SchoolBranch.where(school_id: current_user.school_id)
         format.html { render :new }
         format.json { render json: @staff.errors, status: :unprocessable_entity }
       end

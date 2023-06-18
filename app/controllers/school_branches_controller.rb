@@ -1,11 +1,10 @@
 class SchoolBranchesController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_school_branch, only: [:show, :edit, :update, :destroy]
 
   # GET /school_branches
   # GET /school_branches.json
   def index
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /school_branches/1

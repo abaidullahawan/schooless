@@ -1,5 +1,5 @@
 class SectionsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_section, only: [:show, :edit, :update, :destroy]
 
   # GET /sections
@@ -16,12 +16,10 @@ class SectionsController < ApplicationController
   # GET /sections/new
   def new
     @section = Section.new
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /sections/1/edit
   def edit
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # POST /sections
@@ -34,7 +32,6 @@ class SectionsController < ApplicationController
         format.html { redirect_to @section, notice: 'Section was successfully created.' }
         format.json { render :show, status: :created, location: @section }
       else
-        @school_branches = SchoolBranch.where(school_id: current_user.school_id)
         format.html { render :new }
         format.json { render json: @section.errors, status: :unprocessable_entity }
       end

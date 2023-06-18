@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
 
   def index
-  
   end
 end
