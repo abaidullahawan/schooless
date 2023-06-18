@@ -28,8 +28,10 @@ class CsvImportExportsController < ApplicationController
     CSV.foreach(csv_file.path, headers: true, encoding: 'ISO-8859-1') do |row|
       ActiveRecord::Base.transaction do
         modelRecord = modelTable.new(row.to_h)
-        rid = modelTable.ids.sort.last + 1
-        modelRecord.id = rid
+        if modelRecord.id.blank?
+          rid = modelTable.ids.sort.last + 1
+          modelRecord.id = rid
+        end
         if modelTable == User
           modelRecord.password = 'devbox@123'
         end
