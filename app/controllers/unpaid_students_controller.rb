@@ -1,5 +1,5 @@
 class UnpaidStudentsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   require 'net/http'
   require 'rexml/document'
   def index
@@ -15,9 +15,9 @@ class UnpaidStudentsController < ApplicationController
       @paid_to_year = Date.today.year
     end
     paid_students = StudentFee.where("extract(month from student_fees.paid_date) = ? AND extract(year from student_fees.paid_date) = ? AND student_fees.fee_type = ?", @paid_to_month, @paid_to_year, "Fee")
-    @q = Student.where.not(id: paid_students.pluck(:student_id)).where("deleted=false AND student_type = ?", 0).ransack(params[:q])
+    @q = Student.where.not(id: paid_students.pluck(:student_id)).where("deleted=false AND student_type = ? AND school_branch_id IN (?)", 0, @school_branches.ids).ransack(params[:q])
 
-    @aps_count=Student.where("deleted=false AND admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0").count()
+    @aps_count=Student.where("deleted=false AND (admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0) AND school_branch_id IN (?)", @school_branches.ids).count()
     if @q.result.count > 0
       @q.sorts = 'id asc' if @q.sorts.empty?
     end
@@ -31,12 +31,11 @@ class UnpaidStudentsController < ApplicationController
 
     @students = @q.result(distinct: true).page(params[:page])
     @student_list = @q.result(distinct: true)
-    @p=Student.where("deleted=false AND student_type = ? OR admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0", 0)
+    @p=Student.where("deleted=false AND student_type = ? OR (admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0) AND school_branch_id IN (?)", 0, @school_branches.ids)
     @aps_balance_students=@p-@students
 
     session[:unpaid_students_ids] = @students.pluck(:id)
     session[:unpaid_students_search_date] = "01-#{@paid_to_month}-#{@paid_to_year}"
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
 
     if params[:sms_all_eng].present? && params[:sms_msg].present?
       @sms_students = @student_list.select{ |s| (s.phone_no!=nil or s.phone_no=="") and s.phone_no.length==12 }
@@ -73,7 +72,7 @@ class UnpaidStudentsController < ApplicationController
       @paid_to_month = Date.today.month
       @paid_to_year = Date.today.year
     end
-    @q = Student.where("deleted=false AND student_type = 0 AND (admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0)").ransack(params[:q])
+    @q = Student.where("deleted=false AND student_type = 0 AND (admission_balance < 0 OR security_balance < 0 OR paper_fund_balance < 0) AND school_branch_id IN (?)", @school_branches.ids).ransack(params[:q])
     if @q.result.count > 0
       @q.sorts = 'id asc' if @q.sorts.empty?
     end
@@ -87,7 +86,6 @@ class UnpaidStudentsController < ApplicationController
     @students = @q.result(distinct: true).page(params[:page])
     session[:unpaid_students_ids] = @students.pluck(:id)
     session[:unpaid_students_search_date] = "01-#{@paid_to_month}-#{@paid_to_year}"
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   def pay_now
@@ -114,7 +112,7 @@ class UnpaidStudentsController < ApplicationController
   def sms_to_all_student
     unpaid_students_ids = session[:unpaid_students_ids]
     unpaid_students_search_date = session[:unpaid_students_search_date]
-    @students = Student.where(id: unpaid_students_ids)
+    @students = Student.where(id: unpaid_students_ids, school_branch_id: @school_branches.ids)
     phone_no=@students.select{ |s| s.phone_no!=nil and s.phone_no.length==12 }.pluck(:phone_no)
     msg=URI::escape("Dear Parents,\nReminder of Fee.We request you to please deposit the school fee.\nFine After Due Date:200\nPrincipal,\nEducational School System")
     request='http://sms4connect.com/api/sendsms.php/sendsms/url?id=essystem&pass=system65&mask=ESS&to='+phone_no.join(',')+'923214459614'+'&lang=English&msg='+msg+'&type=xm'
@@ -136,7 +134,7 @@ class UnpaidStudentsController < ApplicationController
   end
 
   def deserving_student_list
-    @students = Student.where(student_type: [1,2],deleted: false)
+    @students = Student.where(student_type: [1,2],deleted: false, school_branch_id: @school_branches.ids)
     @fee=@students.sum(:monthly_fee)
     respond_to do |format|
       format.html
@@ -155,7 +153,7 @@ class UnpaidStudentsController < ApplicationController
   end
 
   def student_list
-    @students=Student.where(deleted: false)
+    @students=Student.where(deleted: false, school_branch_id: @school_branches.ids)
     respond_to do |format|
       format.html
       format.pdf do
@@ -173,7 +171,7 @@ class UnpaidStudentsController < ApplicationController
   end
 
   def active_student_list
-    @students=Student.where(deleted: false)
+    @students=Student.where(deleted: false, school_branch_id: @school_branches.ids)
     respond_to do |format|
       format.html
       format.pdf do
@@ -203,7 +201,7 @@ class UnpaidStudentsController < ApplicationController
     @paid_to_year = Date.today.year
     unpaid_students_ids = session[:unpaid_students_ids]
     unpaid_students_search_date = "01-#{@paid_to_month}-#{@paid_to_year}"
-    @students = Student.where(id: unpaid_students_ids).where(student_type: 0)
+    @students = Student.where(id: unpaid_students_ids, student_type: 0, school_branch_id: @school_branches.ids)
     pay_date = unpaid_students_search_date.to_date
 
     @fee_due_month = "#{pay_date.strftime('%d %B %Y')}"
@@ -222,7 +220,7 @@ class UnpaidStudentsController < ApplicationController
   def print_all_without_balance
     unpaid_students_ids = session[:unpaid_students_ids]
     unpaid_students_search_date = session[:unpaid_students_search_date]
-    @students = Student.where(id: unpaid_students_ids)
+    @students = Student.where(id: unpaid_students_ids, school_branch_id: @school_branches.ids)
     pay_date = unpaid_students_search_date.to_date
     @fee_due_month = "#{pay_date.strftime('%d %B %Y')}"
 
@@ -264,7 +262,7 @@ class UnpaidStudentsController < ApplicationController
   def print_all_fees(page_size, show_as_html)
     unpaid_students_ids = session[:unpaid_students_ids]
     unpaid_students_search_date = session[:unpaid_students_search_date]
-    @students = Student.where(id: unpaid_students_ids)
+    @students = Student.where(id: unpaid_students_ids, school_branch_id: @school_branches.ids)
     pay_date = unpaid_students_search_date.to_date
     @fee_due_month = "#{pay_date.strftime('%d %B %Y')}"
 

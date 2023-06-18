@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_student, only: [:show, :edit, :update, :destroy, :activate, :terminate, :pay_now]
 
   # GET /students
@@ -15,9 +15,9 @@ class StudentsController < ApplicationController
     puts response.body, response.code, response.message, response.headers.inspect
     hash = Hash.from_xml(response)
     # @api_balance = hash.first.last.first.last.pluck("response").map(&:to_i).sum
-    @students_list_by_name=Student.where(deleted: false).distinct(:name)
-    @students_list_by_fname=Student.where(deleted: false).distinct(:father_name)
-    @q =  Student.where(deleted: false).distinct.ransack(params[:q])
+    @students_list_by_name=Student.where(deleted: false, school_branch_id: @school_branches.ids).distinct(:name)
+    @students_list_by_fname=Student.where(deleted: false, school_branch_id: @school_branches.ids).distinct(:father_name)
+    @q =  Student.where(deleted: false, school_branch_id: @school_branches.ids).distinct.ransack(params[:q])
     if @q.result.count>0
       @q.sorts = 'id asc' if @q.sorts.empty?
     end
@@ -58,7 +58,6 @@ class StudentsController < ApplicationController
     end
     @students_sms = @q.result.joins(class_section: [:level, :section]).includes(class_section: [:level, :section])
     @students = @q.result.joins(class_section: [:level, :section]).includes(class_section: [:level, :section]).page(params[:page])
-    @school_branches= SchoolBranch.where(school_id: current_user.school_id)
 
     session[:unpaid_students_ids] = @students.pluck(:id)
 
@@ -155,15 +154,13 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
-    @students_list=Student.all
+    @students_list=Student.where(school_branch_id: @school_branches.ids)
     # @student.student_fees.build
   end
 
   # GET /students/1/edit
   def edit
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
-    @students_list=Student.all
+    @students_list=Student.where(school_branch_id: @school_branches.ids)
     @student.student_fees.build
   end
 
@@ -177,7 +174,6 @@ class StudentsController < ApplicationController
         format.html { redirect_to @student, notice: 'Student was successfully created.' }
         format.json { render :show, status: :created, location: @student }
       else
-        @school_branches = SchoolBranch.where(school_id: current_user.school_id)
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end

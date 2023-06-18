@@ -1,5 +1,5 @@
 class StudentFeesController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_student_fee, only: [:show, :edit, :update, :destroy]
 
   # GET /student_fees
@@ -22,7 +22,6 @@ class StudentFeesController < ApplicationController
       @school_branch_id = params[:q][:student_school_branch_id_eq]
     end
     @student_fees = @q.result(distinct: true).page(params[:page])
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /student_fees/1

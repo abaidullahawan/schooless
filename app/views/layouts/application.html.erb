@@ -12,14 +12,15 @@
 <body>
 
   <div class="d-flex" id="wrapper">
-
+    <% if current_user.present? %>
     <%= render 'layouts/shared/sidebar' %>
+    <% end %>
 
     <!-- Page Content -->
     <div id="page-content-wrapper">
-
+      <% if current_user.present? %>
      <%= render 'layouts/shared/navigation_bar' %>
-
+      <% end %>
       <div class="container-fluid">
         <div style="margin-top: 2rem"></div>
         <% if notice.present? %>

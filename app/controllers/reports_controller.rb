@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   def index
     @st_active = activated_list("Student").count
     @st_terminated = terminated_list("Student").count
@@ -17,7 +17,6 @@ class ReportsController < ApplicationController
       @expense_type = params[:q][:expense_type_eq]
       @school_branch_id = params[:q][:school_branch_id_eq]
     end
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
     @students=Student.all.distinct.pluck(:phone_no)
   end
 

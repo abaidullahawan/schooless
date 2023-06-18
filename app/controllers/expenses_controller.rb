@@ -1,5 +1,5 @@
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   # GET /expenses
@@ -21,7 +21,6 @@ class ExpensesController < ApplicationController
       @school_branch_id = params[:q][:school_branch_id_eq]
     end
     @expenses = @q.result(distinct: true).page(params[:page])
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /expenses/1
@@ -32,12 +31,11 @@ class ExpensesController < ApplicationController
   # GET /expenses/new
   def new
     @expense = Expense.new
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /expenses/1/edit
   def edit
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
+    
   end
 
   # POST /expenses

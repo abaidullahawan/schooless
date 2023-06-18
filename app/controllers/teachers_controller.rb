@@ -1,11 +1,11 @@
 class TeachersController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_teacher, only: [:show, :edit, :update, :destroy, :salary_info]
 
   # GET /teachers
   # GET /teachers.json
   def index
-    @q = Teacher.where(deleted: false).ransack(params[:q])
+    @q = Teacher.where(deleted: false, school_branch_id: @school_branches.ids).ransack(params[:q])
     if @q.result.count > 0
       @q.sorts = 'id asc' if @q.sorts.empty?
     end
@@ -16,8 +16,7 @@ class TeachersController < ApplicationController
     end
     @teachers = @q.result(distinct: true).page(params[:page])
 
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
-    @teachers_pays = Salary.where("extract(month from created_at) = ? AND extract(year from created_at) = ? AND teacher_id IN (?)", Date.today.month, Date.today.year ,Teacher.pluck(:id)).where(:paid_to=>'Teacher')
+    @teachers_pays = Salary.where("extract(month from created_at) = ? AND extract(year from created_at) = ? AND teacher_id IN (?) AND school_branch_id IN (?)", Date.today.month, Date.today.year ,Teacher.pluck(:id), @school_branches.ids).where(:paid_to=>'Teacher')
 
     if params[:pdf_submit]
       request.format = 'pdf'
@@ -43,12 +42,10 @@ class TeachersController < ApplicationController
   # GET /teachers/new
   def new
     @teacher = Teacher.new
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /teachers/1/edit
   def edit
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # POST /teachers
@@ -61,7 +58,6 @@ class TeachersController < ApplicationController
         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
         format.json { render :show, status: :created, location: @teacher }
       else
-        @school_branches = SchoolBranch.where(school_id: current_user.school_id)
         format.html { render :new }
         format.json { render json: @teacher.errors, status: :unprocessable_entity }
       end

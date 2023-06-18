@@ -1,5 +1,5 @@
 class LevelsController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_level, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -12,7 +12,6 @@ class LevelsController < ApplicationController
 
   def new
     @level = Level.new
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   def create
@@ -22,7 +21,6 @@ class LevelsController < ApplicationController
         format.html { redirect_to @level, notice: 'level was successfully created.' }
         format.json { render :show, status: :created, location: @level }
       else
-        @school_branches = SchoolBranch.where(school_id: current_user.school_id)
         format.html { render :new }
         format.json { render json: @level.errors, status: :unprocessable_entity }
       end
@@ -30,7 +28,6 @@ class LevelsController < ApplicationController
   end
 
   def edit
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   def update

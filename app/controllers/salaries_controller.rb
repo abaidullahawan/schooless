@@ -1,5 +1,5 @@
 class SalariesController < ApplicationController
-  before_action :authenticate_user!, :active_branch
+  before_action :authenticate_user!
   before_action :set_salary, only: [:show, :edit, :update, :destroy, :show_advance, :edit_advance, :salary_info_for_teacher]
 
   # GET /salaries
@@ -23,7 +23,6 @@ class SalariesController < ApplicationController
       @school_branch_id = params[:q][:school_branch_id_eq]
     end
     @salaries = @q.result(distinct: true).page(params[:page])
-    @school_branches = SchoolBranch.where(school_id: current_user.school_id)
   end
 
   # GET /salaries/1
