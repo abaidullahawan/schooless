@@ -1,4 +1,5 @@
 class WidowsController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   before_action :set_widow, only: [:show, :edit, :update, :destroy, :pay_now]
 
   # GET /widows

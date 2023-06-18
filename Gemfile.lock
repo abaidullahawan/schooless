@@ -71,6 +71,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    csv (3.0.9)
     date (3.3.3)
     devise (4.9.2)
       bcrypt (~> 3.0)
@@ -291,6 +292,7 @@ DEPENDENCIES
   bootstrap_form (>= 4.2.0)
   byebug
   coffee-rails (~> 4.2)
+  csv
   devise
   escpos
   httparty

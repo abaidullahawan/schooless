@@ -7,7 +7,7 @@ class CreateTeachers < ActiveRecord::Migration[5.0]
       t.string :phone
       t.string :address
       t.string :cnic
-      t.date :dof
+      t.date :date_of_joining
       t.date :date_of_leaving
       t.integer :yearly_increment
       t.integer :monthly_salary

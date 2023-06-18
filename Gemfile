@@ -68,3 +68,5 @@ gem "bootstrap_form", ">= 4.2.0"
 gem 'escpos'
 gem "bootstrap-table-rails"
 gem 'httparty'
+
+gem 'csv'

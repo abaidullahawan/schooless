@@ -1,4 +1,5 @@
 class StaffsController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   before_action :set_staff, only: [:show, :edit, :update, :destroy, :salary_info]
 
   # GET /staffs
