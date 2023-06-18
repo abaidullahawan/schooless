@@ -1,4 +1,5 @@
 class UnpaidStudentsController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   require 'net/http'
   require 'rexml/document'
   def index

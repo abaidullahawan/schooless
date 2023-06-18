@@ -1,4 +1,5 @@
 class SalariesController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   before_action :set_salary, only: [:show, :edit, :update, :destroy, :show_advance, :edit_advance, :salary_info_for_teacher]
 
   # GET /salaries

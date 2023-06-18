@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   def index
     @st_active = activated_list("Student").count
     @st_terminated = terminated_list("Student").count

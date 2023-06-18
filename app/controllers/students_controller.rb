@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   before_action :set_student, only: [:show, :edit, :update, :destroy, :activate, :terminate, :pay_now]
 
   # GET /students

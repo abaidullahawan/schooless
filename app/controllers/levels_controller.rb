@@ -1,4 +1,5 @@
 class LevelsController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   before_action :set_level, only: [:show, :edit, :update, :destroy]
 
   def index

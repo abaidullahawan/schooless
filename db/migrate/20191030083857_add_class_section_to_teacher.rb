@@ -1,6 +1,17 @@
 class AddClassSectionToTeacher < ActiveRecord::Migration[5.0]
-  def change
-    add_reference :teachers, :level, foreign_key: true
-    add_reference :teachers, :section, foreign_key: true
+  disable_ddl_transaction!
+
+  def up
+    change_table :teachers do |t|
+      t.references :level, index: true, null: true
+      t.references :section, index: true, null: true
+    end
+  end
+
+  def down
+    change_table :teachers do |t|
+      t.remove_references :level, index: true, null: true
+      t.remove_references :section, index: true, null: true
+    end
   end
 end

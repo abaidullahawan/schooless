@@ -1,4 +1,5 @@
 class SchoolBranchesController < ApplicationController
+  before_action :authenticate_user!, :active_branch
   before_action :set_school_branch, only: [:show, :edit, :update, :destroy]
 
   # GET /school_branches

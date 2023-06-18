@@ -1,0 +1,33 @@
+<div class='row container p-4'>
+	<div class='col-12'>
+		<h1>Export CSV</h1>
+		<%= form_for :process, url: export_csv_path do |f| %>
+			<div class="d-flex w-100">
+				<span style='width: 15%;' class='mt-1 text-left font-wight-bold'>Table Name :</span>
+				<%= f.select :table_name, options_for_select(["class_section", "expense", "level", "salary", "school_branch", "school", "section", "staff", "student_fee", "student", "teacher", "user", "widow"].map { |t| [t.titleize.delete(' '), t.titleize.delete(' ')] }, nil), {include_blank: "Select Table"}, {class: "form-control", style: 'width: 85%;', required: true } %>
+			</div>
+			<%= f.submit "Download CSV", class: "btn btn-primary mt-2 w-100", data: { disable_with: false} %>
+		<% end %>
+	</div>
+</div>
+<div class='row container p-4'>
+	<div class='col-lg-12'>
+		<h1>Import CSV</h1>
+		<%= form_for :process, url: import_data_from_csv_path, multipart: true do |f| %>
+			<div class='border border-rounded p-4'>
+				<div class="d-flex w-100">
+					<span style='width: 15%;' class='mt-1 text-left font-wight-bold'>Table Name :</span>
+					<%= f.select :table_name, options_for_select(["class_section", "expense", "level", "salary", "school_branch", "school", "section", "staff", "student_fee", "student", "teacher", "user", "widow"].map { |t| [t.titleize.delete(' '), t.titleize.delete(' ')] }, nil), {include_blank: "Select Table"}, {class: "form-control", style: 'width: 85%;', required: true } %>
+				</div>
+				<div class="d-flex w-100 mt-2">
+					<span style='width: 15%;' class='mt-1 text-left font-wight-bold'>Select CSV File :</span>
+					<%= f.file_field :file, style: 'width: 85%;', required: true, class: 'form-control', accept: '.csv' %>
+				</div>
+			</div>
+			<div class='d-flex justify-content-between w-100 mt-2'>
+				<%= f.submit "Process", class: "btn btn-primary", style: 'width: 45%;', data: { disable_with: false} %>
+				<%= f.submit "Run in Background", class: "btn btn-secondary", style: 'width: 45%;', data: { disable_with: false} %>
+			</div>
+		<% end %>
+	</div>
+</div>
